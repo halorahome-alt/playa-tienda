@@ -60,7 +60,7 @@ section{padding-block:88px;position:relative}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(10,20,48,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--poster);font-weight:900;font-size:34px;letter-spacing:.02em;line-height:1}
-.logo svg{width:34px;height:34px}
+
 nav.links{display:flex;gap:28px;font-weight:600;font-size:15px;color:var(--muted-n)}
 nav.links a{text-decoration:none}
 nav.links a:hover{color:#fff}
@@ -549,3 +549,4 @@ select.auto{border-color:var(--ok)!important;background:#effaf4!important;transi
 .vthumb .pl{position:absolute;inset:0;display:grid;place-items:center;background:rgba(5,8,20,.35)}
 .vthumb .pl::after{content:"";width:0;height:0;border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
 .stage video.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:6}
+.logo{gap:2px}.logo .lo{width:.8em;height:.8em;margin-left:0;margin-top:-.04em}

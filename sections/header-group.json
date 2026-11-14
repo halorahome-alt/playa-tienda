@@ -17,20 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Envío gratis en 24-48 h · Paga con tarjeta o al recibir",
-            "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
-          },
-          "blocks": {}
-        },
-        "announcement_cod": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Regalo: Reto Playo de 30 días en familia",
+            "text": "Envío gratis 24-48 h · Paga al recibir · Regalo: Reto Playo",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
@@ -42,8 +29,7 @@
         }
       },
       "block_order": [
-        "announcement_BxgCk9",
-        "announcement_cod"
+        "announcement_BxgCk9"
       ],
       "name": "t:names.announcement_bar",
       "settings": {

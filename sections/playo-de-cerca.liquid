@@ -1,6 +1,6 @@
 <section id="cerca" class="night"><div class="wrap hot-grid">
   <div class="hot-stage rv-in">
-    <img src="img/maquina.webp" alt="Máquina de boxeo musical vista de frente">
+    <img src="{% if section.settings.img1 %}{{ section.settings.img1 | image_url: width: 1600 }}{% else %}{{ 'playo-maquina.webp' | asset_url }}{% endif %}" alt="Máquina de boxeo musical vista de frente">
     <button class="hs" style="left:37%;top:12%" data-i="0" aria-label="Marcador y volumen">1</button>
     <button class="hs" style="left:40.8%;top:36.8%" data-i="1" aria-label="Luces LED">2</button>
     <button class="hs" style="left:26.8%;top:28.9%" data-i="2" aria-label="Dianas de PU">3</button>
@@ -9,10 +9,10 @@
   <div>
     <div class="sh"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
     <div class="hot-list">
-      <button type="button" class="hot-item" data-i="0"><img src="img/det0.jpg" alt=""><div><h3>{{ section.settings.t4 }}</h3><p>{{ section.settings.t5 }}</p></div></button>
-      <button type="button" class="hot-item" data-i="1"><img src="img/det1.jpg" alt=""><div><h3>{{ section.settings.t6 }}</h3><p>{{ section.settings.t7 }}</p></div></button>
-      <button type="button" class="hot-item" data-i="2"><img src="img/det2.jpg" alt=""><div><h3>{{ section.settings.t8 }}</h3><p>{{ section.settings.t9 }}</p></div></button>
-      <button type="button" class="hot-item" data-i="3"><img src="img/det3.jpg" alt=""><div><h3>{{ section.settings.t10 }}</h3><p>{{ section.settings.t11 }}</p></div></button>
+      <button type="button" class="hot-item" data-i="0"><img src="{% if section.settings.img2 %}{{ section.settings.img2 | image_url: width: 1600 }}{% else %}{{ 'playo-det0.jpg' | asset_url }}{% endif %}" alt=""><div><h3>{{ section.settings.t4 }}</h3><p>{{ section.settings.t5 }}</p></div></button>
+      <button type="button" class="hot-item" data-i="1"><img src="{% if section.settings.img3 %}{{ section.settings.img3 | image_url: width: 1600 }}{% else %}{{ 'playo-det1.jpg' | asset_url }}{% endif %}" alt=""><div><h3>{{ section.settings.t6 }}</h3><p>{{ section.settings.t7 }}</p></div></button>
+      <button type="button" class="hot-item" data-i="2"><img src="{% if section.settings.img4 %}{{ section.settings.img4 | image_url: width: 1600 }}{% else %}{{ 'playo-det2.jpg' | asset_url }}{% endif %}" alt=""><div><h3>{{ section.settings.t8 }}</h3><p>{{ section.settings.t9 }}</p></div></button>
+      <button type="button" class="hot-item" data-i="3"><img src="{% if section.settings.img5 %}{{ section.settings.img5 | image_url: width: 1600 }}{% else %}{{ 'playo-det3.jpg' | asset_url }}{% endif %}" alt=""><div><h3>{{ section.settings.t10 }}</h3><p>{{ section.settings.t11 }}</p></div></button>
     </div>
   </div>
 </div></section>
@@ -88,6 +88,31 @@
       "id": "t11",
       "label": "La música sale de la máquina.",
       "default": "La música sale de la máquina."
+    },
+    {
+      "type": "image_picker",
+      "id": "img1",
+      "label": "Imagen 1 (playo-maquina.webp)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img2",
+      "label": "Imagen 2 (playo-det0.jpg)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img3",
+      "label": "Imagen 3 (playo-det1.jpg)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img4",
+      "label": "Imagen 4 (playo-det2.jpg)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img5",
+      "label": "Imagen 5 (playo-det3.jpg)"
     }
   ],
   "presets": [

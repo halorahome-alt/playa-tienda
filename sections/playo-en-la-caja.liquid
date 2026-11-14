@@ -1,5 +1,5 @@
 <section class="canvas-sec"><div class="wrap box-grid">
-  <div class="box-photo bod rv-in"><span class="ring" aria-hidden="true"></span><img src="img/bodegon.webp" alt="Máquina de boxeo con sus guantes, el manual y el cable USB-C"><span class="tag t1">{{ section.settings.t1 }}</span><span class="tag t2">{{ section.settings.t2 }}</span><span class="tag t3">{{ section.settings.t3 }}</span><span class="tag t4">{{ section.settings.t4 }}</span><span class="stamp">{{ section.settings.t5 }}<br>{{ section.settings.t6 }}</span></div>
+  <div class="box-photo bod rv-in"><span class="ring" aria-hidden="true"></span><img src="{% if section.settings.img1 %}{{ section.settings.img1 | image_url: width: 1600 }}{% else %}{{ 'playo-bodegon.webp' | asset_url }}{% endif %}" alt="Máquina de boxeo con sus guantes, el manual y el cable USB-C"><span class="tag t1">{{ section.settings.t1 }}</span><span class="tag t2">{{ section.settings.t2 }}</span><span class="tag t3">{{ section.settings.t3 }}</span><span class="tag t4">{{ section.settings.t4 }}</span><span class="stamp">{{ section.settings.t5 }}<br>{{ section.settings.t6 }}</span></div>
   <div>
     <div class="sh"><span class="eb">{{ section.settings.t7 }}</span><h2>{{ section.settings.t8 }}<br><span class="ac">{{ section.settings.t9 }}</span></h2></div>
     <ul class="inbox">
@@ -101,6 +101,11 @@
       "id": "t14",
       "label": "Reto Playo de 30 días · gratis por WhatsApp",
       "default": "Reto Playo de 30 días · gratis por WhatsApp"
+    },
+    {
+      "type": "image_picker",
+      "id": "img1",
+      "label": "Imagen 1 (playo-bodegon.webp)"
     }
   ],
   "presets": [

@@ -20,7 +20,7 @@
       <div class="score-plate" aria-live="polite"><span class="b">{{ section.settings.t1 }}</span><b id="heroScore">000</b><span class="r">{{ section.settings.t2 }}</span></div>
       <span class="try" id="tryTxt">{{ section.settings.t3 }}</span>
       <div class="machine-wrap" id="machine">
-        <img class="machine" src="img/maquina.webp" alt="Máquina de boxeo musical con las seis dianas iluminadas">
+        <img class="machine" src="{% if section.settings.img1 %}{{ section.settings.img1 | image_url: width: 1600 }}{% else %}{{ 'playo-maquina.webp' | asset_url }}{% endif %}" alt="Máquina de boxeo musical con las seis dianas iluminadas">
         <button class="pad" style="left:29.6%;top:19.9%" aria-label="Diana 1"></button>
         <button class="pad" style="left:62.1%;top:18.5%" aria-label="Diana 2"></button>
         <button class="pad" style="left:13.8%;top:49%" aria-label="Diana 3"></button>
@@ -31,14 +31,14 @@
       <div class="rope-set" aria-hidden="true"><i></i><i></i><i></i></div>
       <span class="post l" aria-hidden="true"></span><span class="post r" aria-hidden="true"></span>
       <img class="photo" id="stagePhoto" alt="" hidden>
-      <video class="photo" id="stageVid" src="vid/golpe.mp4" poster="vid/golpe.jpg" muted loop playsinline preload="none" hidden aria-label="Vídeo: golpeando la máquina en la pared"></video>
+      <video class="photo" id="stageVid" src="{{ 'playo-golpe.mp4' | asset_url }}" poster="{{ 'playo-golpe.jpg' | asset_url }}" muted loop playsinline preload="none" hidden aria-label="Vídeo: golpeando la máquina en la pared"></video>
     </div>
     <div class="thumbs" role="group" aria-label="Galería">
-      <button aria-pressed="true" data-src=""><img src="img/maquina.webp" alt="Vista frontal"></button>
-      <button aria-pressed="false" data-video="1" class="vthumb"><img src="vid/golpe.jpg" alt="Vídeo en la pared"><span class="pl" aria-hidden="true"></span></button>
-      <button aria-pressed="false" data-src="img/hd-bodegon.webp"><img src="img/hd-bodegon.webp" alt="Máquina con guantes, cable y manual"></button>
-      <button aria-pressed="false" data-src="img/hd-luces.webp"><img src="img/hd-luces.webp" alt="Luces LED encendidas de cerca"></button>
-      <button aria-pressed="false" data-src="img/hd-marcador.webp"><img src="img/hd-marcador.webp" alt="Marcador LED contando aciertos"></button>
+      <button aria-pressed="true" data-src=""><img src="{% if section.settings.img2 %}{{ section.settings.img2 | image_url: width: 1600 }}{% else %}{{ 'playo-maquina.webp' | asset_url }}{% endif %}" alt="Vista frontal"></button>
+      <button aria-pressed="false" data-video="1" class="vthumb"><img src="{% if section.settings.img3 %}{{ section.settings.img3 | image_url: width: 1600 }}{% else %}{{ 'playo-golpe.jpg' | asset_url }}{% endif %}" alt="Vídeo en la pared"><span class="pl" aria-hidden="true"></span></button>
+      <button aria-pressed="false" data-src="{{ 'playo-hd-bodegon.webp' | asset_url }}"><img src="{% if section.settings.img4 %}{{ section.settings.img4 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-bodegon.webp' | asset_url }}{% endif %}" alt="Máquina con guantes, cable y manual"></button>
+      <button aria-pressed="false" data-src="{{ 'playo-hd-luces.webp' | asset_url }}"><img src="{% if section.settings.img5 %}{{ section.settings.img5 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-luces.webp' | asset_url }}{% endif %}" alt="Luces LED encendidas de cerca"></button>
+      <button aria-pressed="false" data-src="{{ 'playo-hd-marcador.webp' | asset_url }}"><img src="{% if section.settings.img6 %}{{ section.settings.img6 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-marcador.webp' | asset_url }}{% endif %}" alt="Marcador LED contando aciertos"></button>
     </div>
     <div class="ctrl">
       <button type="button" class="chipbtn" id="soundBtn" aria-pressed="false"><span class="eq"><i></i><i></i><i></i><i></i></span><span>{{ section.settings.t4 }}</span></button>
@@ -421,6 +421,36 @@
       "id": "t52",
       "label": "6+ con un adulto",
       "default": "6+ con un adulto"
+    },
+    {
+      "type": "image_picker",
+      "id": "img1",
+      "label": "Imagen 1 (playo-maquina.webp)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img2",
+      "label": "Imagen 2 (playo-maquina.webp)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img3",
+      "label": "Imagen 3 (playo-golpe.jpg)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img4",
+      "label": "Imagen 4 (playo-hd-bodegon.webp)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img5",
+      "label": "Imagen 5 (playo-hd-luces.webp)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img6",
+      "label": "Imagen 6 (playo-hd-marcador.webp)"
     }
   ],
   "presets": [

@@ -1,0 +1,7 @@
+{
+  "layout": "playo",
+  "sections": {
+    "main": { "type": "playo-landing", "settings": { "product_handle": "maquina-de-boxeo-musical-de-pared" } }
+  },
+  "order": ["main"]
+}

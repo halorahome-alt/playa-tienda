@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded',function(){try{
   // Método de pago
   const CARD_OFF=0;
   function payUI(){const p=$('input[name=pack]:checked'),card=$('input[name=pay]:checked').value==='card',t=+p.dataset.price-(card?CARD_OFF:0);
-    $('#payTotal').textContent=fmt(t);$('#sumTot').textContent=fmt(t);$('#bdSub').textContent=fmt(+p.dataset.price);$('#bdLabel').textContent=p.dataset.label;$('#bdCardRow').hidden=!card;
+    $('#payTotal').textContent=fmt(t);$('#sumTot').textContent=fmt(t);$('#bdSub').textContent=fmt(+p.dataset.price);$('#bdLabel').textContent=p.dataset.label;
     $$('input[name=dpack]').forEach(r=>r.checked=r.value===p.value);$('#payVerb').textContent=card?'Pagar':'Confirmar';
     $('#paySub').textContent=card?'Pago seguro · Envío gratis':'Pagas al recibir · Envío gratis';
     $('#payNote').textContent=card?'Pago cifrado. Se cobra al confirmar el pedido.':'No te cobramos nada ahora.';

@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded',function(){try{
   ['A Coruña','Álava','Albacete','Alicante','Almería','Asturias','Ávila','Illes Balears','Badajoz','Barcelona','Bizkaia','Burgos','Cáceres','Cádiz','Cantabria','Castellón','Ciudad Real','Córdoba','Cuenca','Gipuzkoa','Girona','Granada','Guadalajara','Huelva','Huesca','Jaén','La Rioja','León','Lleida','Lugo','Madrid','Málaga','Murcia','Navarra','Ourense','Palencia','Pontevedra','Salamanca','Segovia','Sevilla','Soria','Tarragona','Teruel','Toledo','Valencia','Valladolid','Zamora','Zaragoza'].forEach(p=>{const o=document.createElement('option');o.textContent=p;$('#fProv').appendChild(o)});
 
   // Método de pago
-  const CARD_OFF=3;
+  const CARD_OFF=0;
   function payUI(){const p=$('input[name=pack]:checked'),card=$('input[name=pay]:checked').value==='card',t=+p.dataset.price-(card?CARD_OFF:0);
     $('#payTotal').textContent=fmt(t);$('#sumTot').textContent=fmt(t);$('#bdSub').textContent=fmt(+p.dataset.price);$('#bdLabel').textContent=p.dataset.label;$('#bdCardRow').hidden=!card;
     $$('input[name=dpack]').forEach(r=>r.checked=r.value===p.value);$('#payVerb').textContent=card?'Pagar':'Confirmar';

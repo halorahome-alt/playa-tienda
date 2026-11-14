@@ -166,11 +166,11 @@ document.addEventListener('DOMContentLoaded',function(){try{
     const bad=[...of.querySelectorAll('input,select')].find(i=>!i.checkValidity());if(bad){bad.focus();return}
     const p=document.querySelector('input[name=dpack]:checked')||document.querySelector('input[name=pack]:checked'),id=VARIANTS[p?p.value:'1'];
     if(!id){location.href='/cart';return}
-    const g=i=>(document.getElementById(i)||{}).value.trim(),nm=g('fName').split(/\s+/),first=nm.shift(),last=nm.join(' ')||'-';
+    const g=i=>((document.getElementById(i)||{}).value||'').trim(),nm=g('fName').split(/\s+/),first=nm.shift(),last=nm.join(' ')||'-';
     let ph=g('fPhone').replace(/[^0-9+]/g,'');if(ph[0]!=='+')ph='+34'+ph;
     const S='checkout[shipping_address]',q=new URLSearchParams();
     [['first_name',first],['last_name',last],['address1',g('fAddr')],['zip',g('fZip')],['city',g('fCity')],['country','ES'],['province',PCODE[g('fProv')]||g('fProv')],['phone',ph]].forEach(([k,v])=>q.append(S+'['+k+']',v));
-    const em=g('fMail');if(em){q.append('checkout[email]',em);q.append('checkout[email_or_phone]',em)}else q.append('checkout[email_or_phone]',ph);
+    q.append('checkout[email_or_phone]',ph);
     const b=of.querySelector('button[type=submit]');if(b)b.setAttribute('aria-busy','true');
     location.href='/cart/'+id+':1?'+q.toString()},true);
   const dlg=$('#order'),form=$('#orderForm'),done=$('#done');

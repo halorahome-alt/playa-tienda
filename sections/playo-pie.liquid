@@ -14,12 +14,12 @@
   <div class="cols">
     <div><a class="logo" href="#top" style="color:#fff" aria-label="Playo">{{ section.settings.t1 }}<svg viewBox="0 0 200 200" aria-hidden="true" class="lo"><circle cx="100" cy="100" r="80" fill="#15171c" stroke="#F5B800" stroke-width="30"/><g fill="#3FD0FF"><circle cx="100" cy="52" r="11"/><circle cx="141" cy="76" r="11"/><circle cx="141" cy="124" r="11"/><circle cx="100" cy="148" r="11" fill="#E5262F"/><circle cx="59" cy="124" r="11"/><circle cx="59" cy="76" r="11"/></g><circle cx="100" cy="100" r="17" fill="#2c2f37" stroke="#3FD0FF" stroke-width="4"/></svg></a><p style="margin-top:12px;max-width:34ch">{{ section.settings.t2 }}</p></div>
     <div><h4>{{ section.settings.t3 }}</h4><ul><li><a href="#asaltos">{{ section.settings.t4 }}</a></li><li><a href="#categorias">{{ section.settings.t5 }}</a></li><li><a href="#envio">{{ section.settings.t6 }}</a></li><li><a href="#faq">{{ section.settings.t7 }}</a></li></ul></div>
-    <div><h4>{{ section.settings.t8 }}</h4><ul><li><a href="#top">{{ section.settings.t9 }}</a></li><li><a href="#top">{{ section.settings.t10 }}</a></li><li><a href="#top">{{ section.settings.t11 }}</a></li><li><a href="#top">{{ section.settings.t12 }}</a></li></ul></div>
+    <div><h4>{{ section.settings.t8 }}</h4><ul><li><a href="/policies/legal-notice">{{ section.settings.t9 }}</a></li><li><a href="/policies/privacy-policy">{{ section.settings.t10 }}</a></li><li><a href="/policies/refund-policy">{{ section.settings.t11 }}</a></li><li><a href="/policies/terms-of-service">{{ section.settings.t12 }}</a></li></ul></div>
   </div>
-  <p class="proto">{{ section.settings.t13 }}</p>
+  
 </div></footer>
 
-<div class="sticky" id="sticky"><div class="p"><span data-total>{{ p1 | money_without_currency }} €</span><small id="stickyPack">{{ section.settings.t14 }}</small></div><button class="btn sm" data-order>{{ section.settings.t15 }}</button></div>
+<div class="sticky" id="sticky"><div class="p"><span data-total>{{ p1 | money_without_currency }} €</span><small id="stickyPack">{{ section.settings.t13 }}</small></div><button class="btn sm" data-order>{{ section.settings.t14 }}</button></div>
 
 {% schema %}
 {
@@ -102,18 +102,12 @@
     {
       "type": "text",
       "id": "t13",
-      "label": "Prototipo de diseño. Nombre, precios, plazos, garantía y Wha",
-      "default": "Prototipo de diseño. Nombre, precios, plazos, garantía y WhatsApp son provisionales. Fotos del proveedor como sustituto de las propias."
-    },
-    {
-      "type": "text",
-      "id": "t14",
       "label": "1 máquina · tarjeta o al recibir",
       "default": "1 máquina · tarjeta o al recibir"
     },
     {
       "type": "text",
-      "id": "t15",
+      "id": "t14",
       "label": "¡Lo quiero!",
       "default": "¡Lo quiero!"
     }

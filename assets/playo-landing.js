@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded',function(){try{
   $$('.card').forEach(c=>{const v=+c.dataset.speed,m=c.querySelector('.meter'),col=v<=3?'#F5B800':v<=6?'#1E5BFF':'#E5262F';
     for(let k=0;k<9;k++){const i=document.createElement('i');if(k<v)i.style.background=col;m.appendChild(i)}
     c.addEventListener('click',()=>{$$('.card').forEach(x=>x.classList.remove('on'));c.classList.add('on');setSpeed(v);stage.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'})})});
-  const rail=$('#rail');$('#railPrev').onclick=()=>rail.scrollBy({left:-rail.clientWidth*.8,behavior:'smooth'});$('#railNext').onclick=()=>rail.scrollBy({left:rail.clientWidth*.8,behavior:'smooth'});
+  const rail=$('#rail');const railGo=d=>{const cs=[...rail.children];if(!cs.length)return;const x=rail.scrollLeft,base=cs[0].offsetLeft;let i=cs.findIndex(c=>c.offsetLeft-base>=x-4);if(i<0)i=cs.length-1;i=Math.max(0,Math.min(cs.length-1,i+d));const max=rail.scrollWidth-rail.clientWidth;rail.scrollTo({left:Math.max(0,Math.min(max,cs[i].offsetLeft-base)),behavior:'smooth'})};$('#railPrev').onclick=()=>railGo(-1);$('#railNext').onclick=()=>railGo(1);
 
   // De cerca
   const hsB=$$('.hs'),hi=$$('.hot-item');let hk=0,hT;
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded',function(){try{
   const prog=$('#prog');addEventListener('scroll',()=>{const h=document.documentElement;prog.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight))+')'},{passive:true});
   const sticky=$('#sticky');if('IntersectionObserver' in window)new IntersectionObserver(([en])=>sticky.classList.toggle('show',!en.isIntersecting&&en.boundingClientRect.top<0)).observe($('.buy .cta'));
   if(!reduce&&'IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.remove('pre');io.unobserve(en.target)}}),{threshold:.12});
-    $$('.rv-in,.card,.inbox li,.faq>details').forEach(el=>{el.classList.add('rv-in');if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}})}
+    $$('.rv-in,.card:not(.rail .card),.inbox li,.faq>details').forEach(el=>{el.classList.add('rv-in');if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}})}
 })();
 
 }catch(e){console.warn('Playo',e)}});

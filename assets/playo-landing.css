@@ -552,3 +552,6 @@ select.auto{border-color:var(--ok)!important;background:#effaf4!important;transi
 .logo{gap:2px}.logo .lo{width:.8em;height:.8em;margin-left:0;margin-top:-.04em}
 
 .shopify-section.playo-sec{display:contents}
+.rail{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.rail>.card{-webkit-transform:translateZ(0);transform:translateZ(0)}
+.rail>.card.on,.rail>.card:hover{transform:translateY(-4px)}

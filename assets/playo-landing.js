@@ -1,6 +1,7 @@
+document.addEventListener('DOMContentLoaded',function(){try{
 
 (function(){
-  const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+  const $=s=>document.querySelector(s)||document.createElement('div'),$$=s=>[...document.querySelectorAll(s)];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fmt=n=>n.toFixed(2).replace('.',',')+' €',pad3=n=>String(n).padStart(3,'0'),p2=n=>String(n).padStart(2,'0');
 
@@ -159,7 +160,7 @@
   // Shopify: el boton de pedido anade el pack elegido al carrito y abre el checkout
   const VARIANTS=window.PLAYO_VARIANTS||{};
   $$('[data-order]').forEach(x=>x.addEventListener('click',async ev=>{ev.preventDefault();ev.stopImmediatePropagation();
-    const p=$('input[name=pack]:checked'),id=VARIANTS[p?p.value:'1'];
+    const p=document.querySelector('input[name=pack]:checked'),id=VARIANTS[p?p.value:'1'];
     if(!id){location.href='/cart';return}
     x.setAttribute('aria-busy','true');
     try{const r=await fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:[{id:+id,quantity:1}]})});if(!r.ok)throw 0;location.href='/checkout'}
@@ -177,3 +178,5 @@
   if(!reduce&&'IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.remove('pre');io.unobserve(en.target)}}),{threshold:.12});
     $$('.rv-in,.card,.inbox li,.faq>details').forEach(el=>{el.classList.add('rv-in');if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}})}
 })();
+
+}catch(e){console.warn('Playo',e)}});

@@ -1,0 +1,77 @@
+<section id="envio" class="night"><div class="wrap">
+  <div class="sh"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
+  <div class="timeline" id="tl">
+    <div><span class="d">{{ section.settings.t4 }}</span><p>{{ section.settings.t5 }}</p></div>
+    <div><span class="d">{{ section.settings.t6 }}</span><p>{{ section.settings.t7 }}</p></div>
+    <div><span class="d">{{ section.settings.t8 }}</span><p>{{ section.settings.t9 }}</p></div>
+  </div>
+</div></section>
+
+{% schema %}
+{
+  "name": "Playo · Envío",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "Envío",
+      "default": "Envío"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "En tu casa",
+      "default": "En tu casa"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "en 24-48 horas",
+      "default": "en 24-48 horas"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Hoy",
+      "default": "Hoy"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "Haces tu pedido.",
+      "default": "Haces tu pedido."
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "24-48 h",
+      "default": "24-48 h"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "En casa, listo para jugar.",
+      "default": "En casa, listo para jugar."
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Esa noche",
+      "default": "Esa noche"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Primera velada en casa.",
+      "default": "Primera velada en casa."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Envío"
+    }
+  ]
+}
+{% endschema %}

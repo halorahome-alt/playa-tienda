@@ -1,0 +1,164 @@
+<section class="canvas-sec"><div class="wrap">
+  <div class="sh"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
+  <div class="flow" id="flow">
+    <div class="v9"><span class="corner g tg">{{ section.settings.t4 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t5 }}</q><span class="w9">{{ section.settings.t6 }}</span></div>
+    <div class="v9"><span class="corner b tg">{{ section.settings.t7 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t8 }}</q><span class="w9">{{ section.settings.t9 }}</span></div>
+    <div class="v9"><span class="corner r tg">{{ section.settings.t10 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t11 }}</q><span class="w9">{{ section.settings.t12 }}</span></div>
+    <div class="v9"><span class="corner b tg">{{ section.settings.t13 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t14 }}</q><span class="w9">{{ section.settings.t15 }}</span></div>
+    <div class="v9"><span class="corner r tg">{{ section.settings.t16 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t17 }}</q><span class="w9">{{ section.settings.t18 }}</span></div>
+    <div class="flow-nav"><button type="button" id="flowPrev" aria-label="Vídeo anterior">←</button><button type="button" id="flowNext" aria-label="Vídeo siguiente">→</button></div>
+  </div>
+  <p class="prev-note">{{ section.settings.t19 }}</p>
+  <div class="rv">
+    <div class="big">—<small>{{ section.settings.t20 }}<br>{{ section.settings.t21 }}</small></div>
+    <div class="bars" aria-hidden="true"><span>5★</span><i></i><span>0</span><span>4★</span><i></i><span>0</span><span>3★</span><i></i><span>0</span><span>2★</span><i></i><span>0</span><span>1★</span><i></i><span>0</span></div>
+    <p>{{ section.settings.t22 }}</p>
+  </div>
+</div></section>
+
+{% schema %}
+{
+  "name": "Playo · Vídeos y opiniones",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "En vuestros salones",
+      "default": "En vuestros salones"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Así queda",
+      "default": "Así queda"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "en casa",
+      "default": "en casa"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Tu vídeo",
+      "default": "Tu vídeo"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "Aquí irá tu vídeo golpeando al ritmo",
+      "default": "Aquí irá tu vídeo golpeando al ritmo"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Prueba en casa · 15 s",
+      "default": "Prueba en casa · 15 s"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Cliente",
+      "default": "Cliente"
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Padre contra hijo",
+      "default": "Padre contra hijo"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Llega con los primeros pedidos",
+      "default": "Llega con los primeros pedidos"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Cliente",
+      "default": "Cliente"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "Abriendo el regalo",
+      "default": "Abriendo el regalo"
+    },
+    {
+      "type": "text",
+      "id": "t12",
+      "label": "Llega con los primeros pedidos",
+      "default": "Llega con los primeros pedidos"
+    },
+    {
+      "type": "text",
+      "id": "t13",
+      "label": "Cliente",
+      "default": "Cliente"
+    },
+    {
+      "type": "text",
+      "id": "t14",
+      "label": "Los abuelos también",
+      "default": "Los abuelos también"
+    },
+    {
+      "type": "text",
+      "id": "t15",
+      "label": "Llega con los primeros pedidos",
+      "default": "Llega con los primeros pedidos"
+    },
+    {
+      "type": "text",
+      "id": "t16",
+      "label": "Cliente",
+      "default": "Cliente"
+    },
+    {
+      "type": "text",
+      "id": "t17",
+      "label": "Nuevo récord",
+      "default": "Nuevo récord"
+    },
+    {
+      "type": "text",
+      "id": "t18",
+      "label": "Llega con los primeros pedidos",
+      "default": "Llega con los primeros pedidos"
+    },
+    {
+      "type": "text",
+      "id": "t19",
+      "label": "Vista previa: huecos de ejemplo para tus vídeos y los de cli",
+      "default": "Vista previa: huecos de ejemplo para tus vídeos y los de clientes. Mándanos el tuyo por WhatsApp y sales aquí."
+    },
+    {
+      "type": "text",
+      "id": "t20",
+      "label": "Sé de los primeros",
+      "default": "Sé de los primeros"
+    },
+    {
+      "type": "text",
+      "id": "t21",
+      "label": "en opinar",
+      "default": "en opinar"
+    },
+    {
+      "type": "text",
+      "id": "t22",
+      "label": "Solo publicamos opiniones de quien la ha recibido, con nombr",
+      "default": "Solo publicamos opiniones de quien la ha recibido, con nombre y ciudad. También las que no son de 5 estrellas."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Vídeos y opiniones"
+    }
+  ]
+}
+{% endschema %}

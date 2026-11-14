@@ -1,0 +1,145 @@
+<section id="categorias" class="canvas-sec"><div class="wrap">
+  <div class="sh"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2><p class="lead">{{ section.settings.t4 }}</p></div>
+  <div class="rail" id="rail">
+    <button type="button" class="card" data-speed="2"><span class="cl">{{ section.settings.t5 }}</span><span class="cb"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M6 21v-4a6 6 0 0112 0v4"/></svg></span><h3>{{ section.settings.t6 }}</h3><span class="age">{{ section.settings.t7 }}</span><span class="meter" data-v="2"></span><span class="go">{{ section.settings.t8 }}</span></span></button>
+    <button type="button" class="card" data-speed="6"><span class="cl">{{ section.settings.t9 }}</span><span class="cb"><span class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span><h3>{{ section.settings.t10 }}</h3><span class="age">{{ section.settings.t11 }}</span><span class="meter" data-v="6"></span><span class="go">{{ section.settings.t12 }}</span></span></button>
+    <button type="button" class="card" data-speed="9"><span class="cl">{{ section.settings.t13 }}</span><span class="cb"><span class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><h3>{{ section.settings.t14 }}</h3><span class="age">{{ section.settings.t15 }}</span><span class="meter" data-v="9"></span><span class="go">{{ section.settings.t16 }}</span></span></button>
+    <button type="button" class="card" data-speed="1"><span class="cl">{{ section.settings.t17 }}</span><span class="cb"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0112 6a5 5 0 019.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></span><h3>{{ section.settings.t18 }}</h3><span class="age">{{ section.settings.t19 }}</span><span class="meter" data-v="1"></span><span class="go">{{ section.settings.t20 }}</span></span></button>
+  </div>
+  <div class="rail-nav"><button type="button" id="railPrev" aria-label="Anterior">←</button><button type="button" id="railNext" aria-label="Siguiente">→</button></div>
+</div></section>
+
+{% schema %}
+{
+  "name": "Playo · Para quién",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "Para quién",
+      "default": "Para quién"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Una categoría",
+      "default": "Una categoría"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "para cada uno",
+      "default": "para cada uno"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Toca una y mira cómo cambia la velocidad de la máquina.",
+      "default": "Toca una y mira cómo cambia la velocidad de la máquina."
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "Peso pluma",
+      "default": "Peso pluma"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Niños",
+      "default": "Niños"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Desde 6 años, con un adulto",
+      "default": "Desde 6 años, con un adulto"
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Probar velocidad 2 →",
+      "default": "Probar velocidad 2 →"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Peso medio",
+      "default": "Peso medio"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Adolescentes",
+      "default": "Adolescentes"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "Adiós al móvil un rato",
+      "default": "Adiós al móvil un rato"
+    },
+    {
+      "type": "text",
+      "id": "t12",
+      "label": "Probar velocidad 6 →",
+      "default": "Probar velocidad 6 →"
+    },
+    {
+      "type": "text",
+      "id": "t13",
+      "label": "Peso pesado",
+      "default": "Peso pesado"
+    },
+    {
+      "type": "text",
+      "id": "t14",
+      "label": "Adultos",
+      "default": "Adultos"
+    },
+    {
+      "type": "text",
+      "id": "t15",
+      "label": "Cardio exprés",
+      "default": "Cardio exprés"
+    },
+    {
+      "type": "text",
+      "id": "t16",
+      "label": "Probar velocidad 9 →",
+      "default": "Probar velocidad 9 →"
+    },
+    {
+      "type": "text",
+      "id": "t17",
+      "label": "Peso leyenda",
+      "default": "Peso leyenda"
+    },
+    {
+      "type": "text",
+      "id": "t18",
+      "label": "Abuelos",
+      "default": "Abuelos"
+    },
+    {
+      "type": "text",
+      "id": "t19",
+      "label": "Reflejos y risas",
+      "default": "Reflejos y risas"
+    },
+    {
+      "type": "text",
+      "id": "t20",
+      "label": "Probar velocidad 1 →",
+      "default": "Probar velocidad 1 →"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Para quién"
+    }
+  ]
+}
+{% endschema %}

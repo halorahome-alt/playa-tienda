@@ -1,0 +1,92 @@
+<span id="top"></span>
+
+
+<div class="hud"><div class="wrap">
+  <span class="cd"><i></i><span>{{ section.settings.t1 }}</span></span>
+  <div class="msgs" id="msgs">
+    <span class="on">{{ section.settings.t2 }}</span>
+    <span>{{ section.settings.t3 }}</span>
+    <span>{{ section.settings.t4 }}</span>
+  </div>
+</div></div>
+
+<header class="site"><span class="prog" id="prog"></span><div class="wrap">
+  <a class="logo" href="#top" aria-label="Playo, inicio">{{ section.settings.t5 }}</a>
+  <nav class="links" aria-label="Secciones"><a href="#asaltos">{{ section.settings.t6 }}</a><a href="#categorias">{{ section.settings.t7 }}</a><a href="#cerca">{{ section.settings.t8 }}</a><a href="#faq">{{ section.settings.t9 }}</a></nav>
+  <button class="btn sm" data-order>{{ section.settings.t10 }}</button>
+</div></header>
+
+{% schema %}
+{
+  "name": "Playo · Cabecera",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "Envío 24-48 h",
+      "default": "Envío 24-48 h"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Paga con tarjeta o al recibir",
+      "default": "Paga con tarjeta o al recibir"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "Envío gratis en 24-48 h desde España",
+      "default": "Envío gratis en 24-48 h desde España"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Regalo: Reto Playo de 30 días en familia",
+      "default": "Regalo: Reto Playo de 30 días en familia"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "PLAY\u00000\u0000",
+      "default": "PLAY\u00000\u0000"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Cómo funciona",
+      "default": "Cómo funciona"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Para quién",
+      "default": "Para quién"
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "De cerca",
+      "default": "De cerca"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Preguntas",
+      "default": "Preguntas"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Pedir",
+      "default": "Pedir"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Cabecera"
+    }
+  ]
+}
+{% endschema %}

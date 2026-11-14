@@ -1,0 +1,127 @@
+{%- liquid
+  if product and product.handle == 'maquina-de-boxeo-musical-de-pared'
+    assign playo_product = product
+  else
+    assign playo_product = all_products['maquina-de-boxeo-musical-de-pared']
+  endif
+  assign v1 = playo_product.variants[0]
+  assign v2 = playo_product.variants[1]
+  assign p1 = v1.price | default: 4999
+  assign p2 = v2.price | default: 8499
+  assign ahorro = p1 | times: 2 | minus: p2
+-%}
+<footer><div class="ropes" aria-hidden="true"><i></i><i></i><i></i></div><div class="wrap">
+  <div class="cols">
+    <div><a class="logo" href="#top" style="color:#fff" aria-label="Playo">{{ section.settings.t1 }}</a><p style="margin-top:12px;max-width:34ch">{{ section.settings.t2 }}</p></div>
+    <div><h4>{{ section.settings.t3 }}</h4><ul><li><a href="#asaltos">{{ section.settings.t4 }}</a></li><li><a href="#categorias">{{ section.settings.t5 }}</a></li><li><a href="#envio">{{ section.settings.t6 }}</a></li><li><a href="#faq">{{ section.settings.t7 }}</a></li></ul></div>
+    <div><h4>{{ section.settings.t8 }}</h4><ul><li><a href="#top">{{ section.settings.t9 }}</a></li><li><a href="#top">{{ section.settings.t10 }}</a></li><li><a href="#top">{{ section.settings.t11 }}</a></li><li><a href="#top">{{ section.settings.t12 }}</a></li></ul></div>
+  </div>
+  <p class="proto">{{ section.settings.t13 }}</p>
+</div></footer>
+
+<div class="sticky" id="sticky"><div class="p"><span data-total>{{ p1 | money_without_currency }} €</span><small id="stickyPack">{{ section.settings.t14 }}</small></div><button class="btn sm" data-order>{{ section.settings.t15 }}</button></div>
+
+{% schema %}
+{
+  "name": "Playo · Pie de página",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "PLAY\u00000\u0000",
+      "default": "PLAY\u00000\u0000"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Boxeo musical para jugar en casa, en familia y sin pantallas",
+      "default": "Boxeo musical para jugar en casa, en familia y sin pantallas."
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "Explora",
+      "default": "Explora"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Cómo funciona",
+      "default": "Cómo funciona"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "Para quién",
+      "default": "Para quién"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Envío",
+      "default": "Envío"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Preguntas",
+      "default": "Preguntas"
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Legal",
+      "default": "Legal"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Aviso legal",
+      "default": "Aviso legal"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Privacidad",
+      "default": "Privacidad"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "Devoluciones",
+      "default": "Devoluciones"
+    },
+    {
+      "type": "text",
+      "id": "t12",
+      "label": "Condiciones",
+      "default": "Condiciones"
+    },
+    {
+      "type": "text",
+      "id": "t13",
+      "label": "Prototipo de diseño. Nombre, precios, plazos, garantía y Wha",
+      "default": "Prototipo de diseño. Nombre, precios, plazos, garantía y WhatsApp son provisionales. Fotos del proveedor como sustituto de las propias."
+    },
+    {
+      "type": "text",
+      "id": "t14",
+      "label": "1 máquina · tarjeta o al recibir",
+      "default": "1 máquina · tarjeta o al recibir"
+    },
+    {
+      "type": "text",
+      "id": "t15",
+      "label": "¡Lo quiero!",
+      "default": "¡Lo quiero!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Pie de página"
+    }
+  ]
+}
+{% endschema %}

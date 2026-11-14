@@ -1,0 +1,99 @@
+<section id="cerca" class="night"><div class="wrap hot-grid">
+  <div class="hot-stage rv-in">
+    <img src="img/maquina.webp" alt="Máquina de boxeo musical vista de frente">
+    <button class="hs" style="left:37%;top:12%" data-i="0" aria-label="Marcador y volumen">1</button>
+    <button class="hs" style="left:40.8%;top:36.8%" data-i="1" aria-label="Luces LED">2</button>
+    <button class="hs" style="left:26.8%;top:28.9%" data-i="2" aria-label="Dianas de PU">3</button>
+    <button class="hs" style="left:78.2%;top:28.9%" data-i="3" aria-label="Altavoz">4</button>
+  </div>
+  <div>
+    <div class="sh"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
+    <div class="hot-list">
+      <button type="button" class="hot-item" data-i="0"><img src="img/det0.jpg" alt=""><div><h3>{{ section.settings.t4 }}</h3><p>{{ section.settings.t5 }}</p></div></button>
+      <button type="button" class="hot-item" data-i="1"><img src="img/det1.jpg" alt=""><div><h3>{{ section.settings.t6 }}</h3><p>{{ section.settings.t7 }}</p></div></button>
+      <button type="button" class="hot-item" data-i="2"><img src="img/det2.jpg" alt=""><div><h3>{{ section.settings.t8 }}</h3><p>{{ section.settings.t9 }}</p></div></button>
+      <button type="button" class="hot-item" data-i="3"><img src="img/det3.jpg" alt=""><div><h3>{{ section.settings.t10 }}</h3><p>{{ section.settings.t11 }}</p></div></button>
+    </div>
+  </div>
+</div></section>
+
+{% schema %}
+{
+  "name": "Playo · De cerca",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "De cerca",
+      "default": "De cerca"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Lista para",
+      "default": "Lista para"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "aguantar golpes",
+      "default": "aguantar golpes"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Marcador LED",
+      "default": "Marcador LED"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "Cuenta cada acierto. Volumen táctil.",
+      "default": "Cuenta cada acierto. Volumen táctil."
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Luces al ritmo",
+      "default": "Luces al ritmo"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Siguen el compás de tu canción.",
+      "default": "Siguen el compás de tu canción."
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Dianas de PU",
+      "default": "Dianas de PU"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Acolchadas para los guantes.",
+      "default": "Acolchadas para los guantes."
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Altavoz",
+      "default": "Altavoz"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "La música sale de la máquina.",
+      "default": "La música sale de la máquina."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · De cerca"
+    }
+  ]
+}
+{% endschema %}

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap">
   {{ 'playo-landing.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
+  <script src="{{ 'playo-landing.js' | asset_url }}" defer></script>
 </head>
 <body>
   {{ content_for_layout }}

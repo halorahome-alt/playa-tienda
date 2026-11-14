@@ -1,0 +1,99 @@
+{%- liquid
+  if product and product.handle == 'maquina-de-boxeo-musical-de-pared'
+    assign playo_product = product
+  else
+    assign playo_product = all_products['maquina-de-boxeo-musical-de-pared']
+  endif
+  assign v1 = playo_product.variants[0]
+  assign v2 = playo_product.variants[1]
+  assign p1 = v1.price | default: 4999
+  assign p2 = v2.price | default: 8499
+  assign ahorro = p1 | times: 2 | minus: p2
+-%}
+<section class="night"><div class="wrap final">
+  <div class="sh c" style="margin-bottom:0"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
+  <div class="belt" aria-label="Envío en 24-48 horas, envío gratis y 30 días de devolución"><span class="strap"></span><div class="plate"><div><b>{{ section.settings.t4 }}</b><span>{{ section.settings.t5 }}</span></div><div><b>0€</b><span>{{ section.settings.t6 }}</span></div><div><b>{{ section.settings.t7 }}</b><span>{{ section.settings.t8 }}</span></div></div><span class="strap"></span></div>
+  <button class="btn cta" style="max-width:440px" data-order><span>{{ section.settings.t9 }} <span data-total>{{ p1 | money_without_currency }} €</span></span><small>{{ section.settings.t10 }}</small></button>
+  <span class="small">{{ section.settings.t11 }}</span>
+</div></section>
+
+{% schema %}
+{
+  "name": "Playo · Último asalto",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "Último asalto",
+      "default": "Último asalto"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Que empiece",
+      "default": "Que empiece"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "la velada",
+      "default": "la velada"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "48H",
+      "default": "48H"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "Entrega",
+      "default": "Entrega"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Envío",
+      "default": "Envío"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "30D",
+      "default": "30D"
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Devolución",
+      "default": "Devolución"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "¡Lo quiero! ·",
+      "default": "¡Lo quiero! ·"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Tarjeta o al recibir",
+      "default": "Tarjeta o al recibir"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "Envío gratis · Tarjeta o al recibir · 30 días de devolución",
+      "default": "Envío gratis · Tarjeta o al recibir · 30 días de devolución"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Último asalto"
+    }
+  ]
+}
+{% endschema %}

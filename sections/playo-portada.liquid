@@ -1,0 +1,432 @@
+{%- liquid
+  if product and product.handle == 'maquina-de-boxeo-musical-de-pared'
+    assign playo_product = product
+  else
+    assign playo_product = all_products['maquina-de-boxeo-musical-de-pared']
+  endif
+  assign v1 = playo_product.variants[0]
+  assign v2 = playo_product.variants[1]
+  assign p1 = v1.price | default: 4999
+  assign p2 = v2.price | default: 8499
+  assign ahorro = p1 | times: 2 | minus: p2
+-%}
+<script>
+  window.PLAYO_VARIANTS = {"1": {{ v1.id | default: 0 }}, "2": {{ v2.id | default: 0 }}};
+</script>
+<section class="hero"><div class="wrap hero-grid">
+  <div class="stage-col">
+    <div class="stage" id="stage">
+      <span class="spot" aria-hidden="true"></span>
+      <div class="score-plate" aria-live="polite"><span class="b">{{ section.settings.t1 }}</span><b id="heroScore">000</b><span class="r">{{ section.settings.t2 }}</span></div>
+      <span class="try" id="tryTxt">{{ section.settings.t3 }}</span>
+      <div class="machine-wrap" id="machine">
+        <img class="machine" src="img/maquina.webp" alt="Máquina de boxeo musical con las seis dianas iluminadas">
+        <button class="pad" style="left:29.6%;top:19.9%" aria-label="Diana 1"></button>
+        <button class="pad" style="left:62.1%;top:18.5%" aria-label="Diana 2"></button>
+        <button class="pad" style="left:13.8%;top:49%" aria-label="Diana 3"></button>
+        <button class="pad" style="left:79.6%;top:48.5%" aria-label="Diana 4"></button>
+        <button class="pad" style="left:29.4%;top:79.6%" aria-label="Diana 5"></button>
+        <button class="pad" style="left:62.1%;top:80.1%" aria-label="Diana 6"></button>
+      </div>
+      <div class="rope-set" aria-hidden="true"><i></i><i></i><i></i></div>
+      <span class="post l" aria-hidden="true"></span><span class="post r" aria-hidden="true"></span>
+      <img class="photo" id="stagePhoto" alt="" hidden>
+      <video class="photo" id="stageVid" src="vid/golpe.mp4" poster="vid/golpe.jpg" muted loop playsinline preload="none" hidden aria-label="Vídeo: golpeando la máquina en la pared"></video>
+    </div>
+    <div class="thumbs" role="group" aria-label="Galería">
+      <button aria-pressed="true" data-src=""><img src="img/maquina.webp" alt="Vista frontal"></button>
+      <button aria-pressed="false" data-video="1" class="vthumb"><img src="vid/golpe.jpg" alt="Vídeo en la pared"><span class="pl" aria-hidden="true"></span></button>
+      <button aria-pressed="false" data-src="img/hd-bodegon.webp"><img src="img/hd-bodegon.webp" alt="Máquina con guantes, cable y manual"></button>
+      <button aria-pressed="false" data-src="img/hd-luces.webp"><img src="img/hd-luces.webp" alt="Luces LED encendidas de cerca"></button>
+      <button aria-pressed="false" data-src="img/hd-marcador.webp"><img src="img/hd-marcador.webp" alt="Marcador LED contando aciertos"></button>
+    </div>
+    <div class="ctrl">
+      <button type="button" class="chipbtn" id="soundBtn" aria-pressed="false"><span class="eq"><i></i><i></i><i></i><i></i></span><span>{{ section.settings.t4 }}</span></button>
+      <button type="button" class="chipbtn" data-lv="2" aria-pressed="false">{{ section.settings.t5 }}</button>
+      <button type="button" class="chipbtn" data-lv="5" aria-pressed="true">{{ section.settings.t6 }}</button>
+      <button type="button" class="chipbtn" data-lv="9" aria-pressed="false">{{ section.settings.t7 }}</button>
+      <span class="spd">{{ section.settings.t8 }} <b id="spdOut">5</b>/9</span>
+    </div>
+  </div>
+
+  <form class="buy" id="buy" onsubmit="return false">
+    <div class="poster-top"><span class="corner b">{{ section.settings.t9 }}</span><span class="vs">{{ section.settings.t10 }}</span><span class="corner r">{{ section.settings.t11 }}</span></div>
+    <h1>{{ section.settings.t12 }}<span class="l2">{{ section.settings.t13 }}</span><small>{{ section.settings.t14 }}</small></h1>
+    <div class="price-row"><span class="price-big" data-total>{{ p1 | money_without_currency }} €</span><span class="cod">{{ section.settings.t15 }}</span></div>
+    <p class="muted">{{ section.settings.t16 }}</p>
+
+
+    <fieldset>
+      <legend>{{ section.settings.t17 }}</legend>
+      <label class="opt"><input type="radio" name="pack" value="1" checked data-price="{{ p1 | divided_by: 100.0 }}" data-label="1 máquina + guantes"><span class="radio"></span>
+        <span><span class="name">{{ section.settings.t18 }}</span><br><span class="sub">{{ section.settings.t19 }}</span></span>
+        <span class="price">{{ p1 | money_without_currency }} €</span></label>
+      <label class="opt"><input type="radio" name="pack" value="2" data-price="{{ p2 | divided_by: 100.0 }}" data-label="2 máquinas + guantes"><span class="radio"></span><span class="badge">{{ section.settings.t20 }}</span>
+        <span><span class="name">{{ section.settings.t21 }}<span class="duo"><i></i><i></i></span></span><br><span class="sub">{{ section.settings.t22 }}</span></span>
+        <span class="price">{{ p2 | money_without_currency }} €<span class="unit">Ahorras {{ ahorro | money_without_currency }} €</span></span></label>
+    </fieldset>
+
+    <div class="gift">
+      <span class="gtag">{{ section.settings.t23 }}</span>
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#F5B800"/><path d="M20 9l3.2 6.6 7.3 1-5.3 5.1 1.3 7.2L20 25.5l-6.5 3.4 1.3-7.2-5.3-5.1 7.3-1z" fill="#0A1430"/></svg>
+      <div><b>{{ section.settings.t24 }}</b><span class="s">{{ section.settings.t25 }}</span></div>
+    </div>
+
+    <button class="btn cta" type="button" data-order><span>{{ section.settings.t26 }} <span data-total>{{ p1 | money_without_currency }} €</span></span><small>{{ section.settings.t27 }}</small></button>
+
+    <div class="trust">
+      <div>{{ section.settings.t28 }}</div>
+      <div>{{ section.settings.t29 }}</div>
+      <div>{{ section.settings.t30 }}</div>
+      <div>{{ section.settings.t31 }}</div>
+    </div>
+
+    <ol class="ship" aria-label="Cuándo llega">
+      <li><b>{{ section.settings.t32 }}</b><span>{{ section.settings.t33 }}</span></li>
+      <li><b>{{ section.settings.t34 }}</b><span>{{ section.settings.t35 }}</span></li>
+      <li><b id="shipIn">{{ section.settings.t36 }}</b><span>{{ section.settings.t37 }}</span></li>
+    </ol>
+
+    <details class="acc">
+      <summary>{{ section.settings.t38 }}<span class="pm">+</span></summary>
+      <dl>
+        <div><dt>{{ section.settings.t39 }}</dt><dd>{{ section.settings.t40 }}</dd></div>
+        <div><dt>{{ section.settings.t41 }}</dt><dd>{{ section.settings.t42 }}</dd></div>
+        <div><dt>{{ section.settings.t43 }}</dt><dd>9 <span class="pend">{{ section.settings.t44 }}</span></dd></div>
+        <div><dt>{{ section.settings.t45 }}</dt><dd>{{ section.settings.t46 }}</dd></div>
+        <div><dt>{{ section.settings.t47 }}</dt><dd>{{ section.settings.t48 }}</dd></div>
+        <div><dt>{{ section.settings.t49 }}</dt><dd>{{ section.settings.t50 }}</dd></div>
+        <div><dt>{{ section.settings.t51 }}</dt><dd>{{ section.settings.t52 }}</dd></div>
+      </dl>
+    </details>
+  </form>
+</div></section>
+
+<div class="band" aria-hidden="true"><div class="mq"><div class="mq-track" id="mq"></div></div></div>
+
+{% schema %}
+{
+  "name": "Playo · Portada y compra",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "AZUL",
+      "default": "AZUL"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "ROJO",
+      "default": "ROJO"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "Toca la diana encendida",
+      "default": "Toca la diana encendida"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Con música",
+      "default": "Con música"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "Pluma",
+      "default": "Pluma"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Medio",
+      "default": "Medio"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Pesado",
+      "default": "Pesado"
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Velocidad",
+      "default": "Velocidad"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Rincón azul",
+      "default": "Rincón azul"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "vs",
+      "default": "vs"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "Rincón rojo",
+      "default": "Rincón rojo"
+    },
+    {
+      "type": "text",
+      "id": "t12",
+      "label": "Velada en casa",
+      "default": "Velada en casa"
+    },
+    {
+      "type": "text",
+      "id": "t13",
+      "label": "cada noche",
+      "default": "cada noche"
+    },
+    {
+      "type": "text",
+      "id": "t14",
+      "label": "Máquina de boxeo musical de pared",
+      "default": "Máquina de boxeo musical de pared"
+    },
+    {
+      "type": "text",
+      "id": "t15",
+      "label": "Tarjeta o al recibir",
+      "default": "Tarjeta o al recibir"
+    },
+    {
+      "type": "text",
+      "id": "t16",
+      "label": "El regalo para los que no se pierden una velada. Su música, ",
+      "default": "El regalo para los que no se pierden una velada. Su música, las luces marcan el golpe y a combatir en casa."
+    },
+    {
+      "type": "text",
+      "id": "t17",
+      "label": "Elige tu pack",
+      "default": "Elige tu pack"
+    },
+    {
+      "type": "text",
+      "id": "t18",
+      "label": "1 máquina + guantes",
+      "default": "1 máquina + guantes"
+    },
+    {
+      "type": "text",
+      "id": "t19",
+      "label": "Envío gratis",
+      "default": "Envío gratis"
+    },
+    {
+      "type": "text",
+      "id": "t20",
+      "label": "Padre contra hijo",
+      "default": "Padre contra hijo"
+    },
+    {
+      "type": "text",
+      "id": "t21",
+      "label": "2 máquinas + guantes",
+      "default": "2 máquinas + guantes"
+    },
+    {
+      "type": "text",
+      "id": "t22",
+      "label": "Una por rincón",
+      "default": "Una por rincón"
+    },
+    {
+      "type": "text",
+      "id": "t23",
+      "label": "Gratis con tu pedido",
+      "default": "Gratis con tu pedido"
+    },
+    {
+      "type": "text",
+      "id": "t24",
+      "label": "Reto Playo · 30 días en familia",
+      "default": "Reto Playo · 30 días en familia"
+    },
+    {
+      "type": "text",
+      "id": "t25",
+      "label": "Retos por nivel y canciones para cada velocidad.",
+      "default": "Retos por nivel y canciones para cada velocidad."
+    },
+    {
+      "type": "text",
+      "id": "t26",
+      "label": "¡Lo quiero! ·",
+      "default": "¡Lo quiero! ·"
+    },
+    {
+      "type": "text",
+      "id": "t27",
+      "label": "3 € menos pagando con tarjeta",
+      "default": "3 € menos pagando con tarjeta"
+    },
+    {
+      "type": "text",
+      "id": "t28",
+      "label": "\u00001\u0000Tarjeta o al recibir",
+      "default": "\u00001\u0000Tarjeta o al recibir"
+    },
+    {
+      "type": "text",
+      "id": "t29",
+      "label": "\u00002\u0000Envío gratis 24-48 h",
+      "default": "\u00002\u0000Envío gratis 24-48 h"
+    },
+    {
+      "type": "text",
+      "id": "t30",
+      "label": "\u00003\u000030 días de devolución",
+      "default": "\u00003\u000030 días de devolución"
+    },
+    {
+      "type": "text",
+      "id": "t31",
+      "label": "\u00004\u0000Atención por WhatsApp",
+      "default": "\u00004\u0000Atención por WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "t32",
+      "label": "Hoy",
+      "default": "Hoy"
+    },
+    {
+      "type": "text",
+      "id": "t33",
+      "label": "Haces tu pedido",
+      "default": "Haces tu pedido"
+    },
+    {
+      "type": "text",
+      "id": "t34",
+      "label": "Hoy o mañana",
+      "default": "Hoy o mañana"
+    },
+    {
+      "type": "text",
+      "id": "t35",
+      "label": "Sale de España",
+      "default": "Sale de España"
+    },
+    {
+      "type": "text",
+      "id": "t36",
+      "label": "En 24-48 h",
+      "default": "En 24-48 h"
+    },
+    {
+      "type": "text",
+      "id": "t37",
+      "label": "En tu casa",
+      "default": "En tu casa"
+    },
+    {
+      "type": "text",
+      "id": "t38",
+      "label": "Medidas y especificaciones",
+      "default": "Medidas y especificaciones"
+    },
+    {
+      "type": "text",
+      "id": "t39",
+      "label": "Diámetro",
+      "default": "Diámetro"
+    },
+    {
+      "type": "text",
+      "id": "t40",
+      "label": "35 cm",
+      "default": "35 cm"
+    },
+    {
+      "type": "text",
+      "id": "t41",
+      "label": "Dianas",
+      "default": "Dianas"
+    },
+    {
+      "type": "text",
+      "id": "t42",
+      "label": "6, con luz LED",
+      "default": "6, con luz LED"
+    },
+    {
+      "type": "text",
+      "id": "t43",
+      "label": "Velocidades",
+      "default": "Velocidades"
+    },
+    {
+      "type": "text",
+      "id": "t44",
+      "label": "(a confirmar)",
+      "default": "(a confirmar)"
+    },
+    {
+      "type": "text",
+      "id": "t45",
+      "label": "Música",
+      "default": "Música"
+    },
+    {
+      "type": "text",
+      "id": "t46",
+      "label": "Bluetooth + altavoz",
+      "default": "Bluetooth + altavoz"
+    },
+    {
+      "type": "text",
+      "id": "t47",
+      "label": "Carga",
+      "default": "Carga"
+    },
+    {
+      "type": "text",
+      "id": "t48",
+      "label": "USB-C",
+      "default": "USB-C"
+    },
+    {
+      "type": "text",
+      "id": "t49",
+      "label": "Montaje",
+      "default": "Montaje"
+    },
+    {
+      "type": "text",
+      "id": "t50",
+      "label": "Sin taladro",
+      "default": "Sin taladro"
+    },
+    {
+      "type": "text",
+      "id": "t51",
+      "label": "Edad",
+      "default": "Edad"
+    },
+    {
+      "type": "text",
+      "id": "t52",
+      "label": "6+ con un adulto",
+      "default": "6+ con un adulto"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Portada y compra"
+    }
+  ]
+}
+{% endschema %}

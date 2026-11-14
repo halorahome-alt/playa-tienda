@@ -1,0 +1,115 @@
+<section id="asaltos" class="canvas-sec"><div class="wrap">
+  <div class="sh"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
+  <div class="rounds">
+    <div class="round rv-in"><div class="rn"><span class="label">{{ section.settings.t4 }}</span><svg class="bell" viewBox="0 0 24 24" fill="none" stroke="#E5262F" stroke-width="1.8"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/></svg></div><div class="vis mnt" aria-hidden="true"><span class="mnt-pad p1"></span><span class="mnt-pad p2"></span><span class="mnt-pad p3"></span><img class="mnt-m" src="img/maquina.webp" alt=""><span class="mnt-ok">{{ section.settings.t5 }}</span></div><h3>{{ section.settings.t6 }}</h3><p>{{ section.settings.t7 }}</p></div>
+    <div class="round rv-in"><div class="rn"><span class="label">{{ section.settings.t8 }}</span><svg class="bell" viewBox="0 0 24 24" fill="none" stroke="#E5262F" stroke-width="1.8"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/></svg></div><div class="vis vv"><video class="lazyv" src="vid/musica.mp4" poster="vid/musica.jpg" muted loop playsinline preload="none" aria-label="Vídeo: conectando el móvil por Bluetooth"></video><span class="real">{{ section.settings.t9 }}</span></div><h3>{{ section.settings.t10 }}</h3><p>{{ section.settings.t11 }}</p></div>
+    <div class="round rv-in"><div class="rn"><span class="label">{{ section.settings.t12 }}</span><svg class="bell" viewBox="0 0 24 24" fill="none" stroke="#E5262F" stroke-width="1.8"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/></svg></div><div class="vis vv"><video class="lazyv" src="vid/golpe.mp4" poster="vid/golpe.jpg" muted loop playsinline preload="none" aria-label="Vídeo: golpeando la diana encendida"></video><span class="real">{{ section.settings.t13 }}</span></div><h3>{{ section.settings.t14 }}</h3><p>{{ section.settings.t15 }}</p></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="ropes" aria-hidden="true"><i></i><i></i><i></i></div></div>
+
+{% schema %}
+{
+  "name": "Playo · Cómo funciona",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "Cómo funciona",
+      "default": "Cómo funciona"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Tres asaltos",
+      "default": "Tres asaltos"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "y a jugar",
+      "default": "y a jugar"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "Asalto 1",
+      "default": "Asalto 1"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "✓ Sin taladro",
+      "default": "✓ Sin taladro"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "Pégala a la pared",
+      "default": "Pégala a la pared"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Adhesivo y correa incluidos. Sin agujeros.",
+      "default": "Adhesivo y correa incluidos. Sin agujeros."
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Asalto 2",
+      "default": "Asalto 2"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Vídeo real",
+      "default": "Vídeo real"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Pon tu música",
+      "default": "Pon tu música"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "Bluetooth desde el móvil.",
+      "default": "Bluetooth desde el móvil."
+    },
+    {
+      "type": "text",
+      "id": "t12",
+      "label": "Asalto 3",
+      "default": "Asalto 3"
+    },
+    {
+      "type": "text",
+      "id": "t13",
+      "label": "Vídeo real",
+      "default": "Vídeo real"
+    },
+    {
+      "type": "text",
+      "id": "t14",
+      "label": "¡Golpea!",
+      "default": "¡Golpea!"
+    },
+    {
+      "type": "text",
+      "id": "t15",
+      "label": "Antes de que se apague la luz.",
+      "default": "Antes de que se apague la luz."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Cómo funciona"
+    }
+  ]
+}
+{% endschema %}

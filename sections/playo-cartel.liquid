@@ -1,0 +1,232 @@
+<section id="fans" class="night fans"><div class="wrap fans-grid">
+  <div class="rv-in">
+    <div class="sh" style="margin-bottom:0"><span class="eb">{{ section.settings.t1 }}</span>
+    <h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
+    <div class="chips3">
+      <span>{{ section.settings.t4 }}</span>
+      <span>{{ section.settings.t5 }}</span>
+      <span>{{ section.settings.t6 }}</span>
+    </div>
+    <form class="mk" id="mk" onsubmit="return false" aria-label="Crea su cartel">
+      <label>{{ section.settings.t7 }}<input id="mkA" maxlength="12" value="Hugo" autocomplete="off"></label>
+      <label>{{ section.settings.t8 }}<input id="mkAk" maxlength="16" value="El Rayo" autocomplete="off"></label>
+      <label class="full">{{ section.settings.t9 }}<input id="mkB" maxlength="12" value="Papá" autocomplete="off"></label>
+      <button class="btn cta" type="button" data-order><span>{{ section.settings.t10 }}</span><small>{{ section.settings.t11 }}</small></button>
+    </form>
+  </div>
+  <div class="fans-r rv-in">
+  <div class="poster" id="poster" aria-live="polite">
+    <span class="rope" style="top:38%"></span><span class="rope" style="top:46%"></span><span class="rope" style="top:54%"></span>
+    <div class="ph">{{ section.settings.t12 }}<div class="ttl">{{ section.settings.t13 }}</div></div>
+    <div class="mid">
+      <div class="f b"><svg class="glove" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 34C16 20 24 8 37 8c13 0 19 10 17 22-1 7-5 11-9 13v4H23v-5c-2-2-3-5-3-8z" fill="#fff" stroke="#0b1020" stroke-width="3" stroke-linejoin="round"/><path d="M21 35c-6-1-9-7-6-12 2-3 7-3 9 1 1 2 1 5 0 7" fill="#fff" stroke="#0b1020" stroke-width="3" stroke-linecap="round"/><path d="M28 25c4-6 13-8 21-4" fill="none" stroke="#0b1020" stroke-width="2.5" stroke-linecap="round" opacity=".5"/><rect x="21" y="45" width="26" height="11" rx="2.5" fill="#F5B800" stroke="#0b1020" stroke-width="3"/><path d="M26 50.5h16" stroke="#0b1020" stroke-width="2"/></svg><span class="nm" id="pA">{{ section.settings.t14 }}</span><span class="ak" id="pAk">{{ section.settings.t15 }}</span></div>
+      <span class="pvs">{{ section.settings.t16 }}</span>
+      <div class="f r"><svg class="glove" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 34C16 20 24 8 37 8c13 0 19 10 17 22-1 7-5 11-9 13v4H23v-5c-2-2-3-5-3-8z" fill="#fff" stroke="#0b1020" stroke-width="3" stroke-linejoin="round"/><path d="M21 35c-6-1-9-7-6-12 2-3 7-3 9 1 1 2 1 5 0 7" fill="#fff" stroke="#0b1020" stroke-width="3" stroke-linecap="round"/><path d="M28 25c4-6 13-8 21-4" fill="none" stroke="#0b1020" stroke-width="2.5" stroke-linecap="round" opacity=".5"/><rect x="21" y="45" width="26" height="11" rx="2.5" fill="#F5B800" stroke="#0b1020" stroke-width="3"/><path d="M26 50.5h16" stroke="#0b1020" stroke-width="2"/></svg><span class="nm" id="pB">{{ section.settings.t17 }}</span><span class="ak">{{ section.settings.t18 }}</span></div>
+    </div>
+    <div class="pf"><span class="belt">{{ section.settings.t19 }}</span><span class="dt" id="pDt">{{ section.settings.t20 }}</span></div>
+    <span class="flash"></span>
+  </div>
+  <div class="dl-row"><button type="button" class="btn sm ghost" id="dlPoster">{{ section.settings.t21 }}</button><span>{{ section.settings.t22 }}</span></div>
+    <div class="fight" id="board">
+      <div class="top">
+        <div class="side b"><span class="sm">{{ section.settings.t23 }}</span><span class="nm" id="bA">{{ section.settings.t24 }}</span></div>
+        <div class="vsx">{{ section.settings.t25 }}</div>
+        <div class="side r"><span class="sm">{{ section.settings.t26 }}</span><span class="nm" id="bB">{{ section.settings.t27 }}</span></div>
+      </div>
+      <div class="scores">
+        <div><span class="pts" id="p1">000</span><div class="bar"><span id="b1"></span></div></div>
+        <div><span class="pts" id="p2">000</span><div class="bar r"><span id="b2"></span></div></div>
+      </div>
+      <div class="foot"><span class="winner" id="winner">{{ section.settings.t28 }}</span><span class="example">{{ section.settings.t29 }}</span></div>
+    </div>
+  </div>
+</div></section>
+
+{% schema %}
+{
+  "name": "Playo · Cartel de la velada",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t1",
+      "label": "El regalo para fans del boxeo",
+      "default": "El regalo para fans del boxeo"
+    },
+    {
+      "type": "text",
+      "id": "t2",
+      "label": "Su propia velada",
+      "default": "Su propia velada"
+    },
+    {
+      "type": "text",
+      "id": "t3",
+      "label": "en el salón",
+      "default": "en el salón"
+    },
+    {
+      "type": "text",
+      "id": "t4",
+      "label": "\u00000\u0000Su canción de entrada",
+      "default": "\u00000\u0000Su canción de entrada"
+    },
+    {
+      "type": "text",
+      "id": "t5",
+      "label": "\u00001\u0000Rincón azul vs rojo",
+      "default": "\u00001\u0000Rincón azul vs rojo"
+    },
+    {
+      "type": "text",
+      "id": "t6",
+      "label": "\u00002\u0000Cinturón en juego",
+      "default": "\u00002\u0000Cinturón en juego"
+    },
+    {
+      "type": "text",
+      "id": "t7",
+      "label": "Su nombre",
+      "default": "Su nombre"
+    },
+    {
+      "type": "text",
+      "id": "t8",
+      "label": "Su apodo",
+      "default": "Su apodo"
+    },
+    {
+      "type": "text",
+      "id": "t9",
+      "label": "Su rival",
+      "default": "Su rival"
+    },
+    {
+      "type": "text",
+      "id": "t10",
+      "label": "Regálale su velada",
+      "default": "Regálale su velada"
+    },
+    {
+      "type": "text",
+      "id": "t11",
+      "label": "Tarjeta o pago al recibir",
+      "default": "Tarjeta o pago al recibir"
+    },
+    {
+      "type": "text",
+      "id": "t12",
+      "label": "Esta noche · En el salón",
+      "default": "Esta noche · En el salón"
+    },
+    {
+      "type": "text",
+      "id": "t13",
+      "label": "Velada en casa",
+      "default": "Velada en casa"
+    },
+    {
+      "type": "text",
+      "id": "t14",
+      "label": "Hugo",
+      "default": "Hugo"
+    },
+    {
+      "type": "text",
+      "id": "t15",
+      "label": "«El Rayo»",
+      "default": "«El Rayo»"
+    },
+    {
+      "type": "text",
+      "id": "t16",
+      "label": "VS",
+      "default": "VS"
+    },
+    {
+      "type": "text",
+      "id": "t17",
+      "label": "Papá",
+      "default": "Papá"
+    },
+    {
+      "type": "text",
+      "id": "t18",
+      "label": "«El Jefe»",
+      "default": "«El Jefe»"
+    },
+    {
+      "type": "text",
+      "id": "t19",
+      "label": "★ Título del salón ★",
+      "default": "★ Título del salón ★"
+    },
+    {
+      "type": "text",
+      "id": "t20",
+      "label": "6 de enero · 21:00",
+      "default": "6 de enero · 21:00"
+    },
+    {
+      "type": "text",
+      "id": "t21",
+      "label": "\u00005\u0000Descargar cartel",
+      "default": "\u00005\u0000Descargar cartel"
+    },
+    {
+      "type": "text",
+      "id": "t22",
+      "label": "Formato historia: listo para Instagram, TikTok o WhatsApp",
+      "default": "Formato historia: listo para Instagram, TikTok o WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "t23",
+      "label": "Rincón azul",
+      "default": "Rincón azul"
+    },
+    {
+      "type": "text",
+      "id": "t24",
+      "label": "Hugo",
+      "default": "Hugo"
+    },
+    {
+      "type": "text",
+      "id": "t25",
+      "label": "VS",
+      "default": "VS"
+    },
+    {
+      "type": "text",
+      "id": "t26",
+      "label": "Rincón rojo",
+      "default": "Rincón rojo"
+    },
+    {
+      "type": "text",
+      "id": "t27",
+      "label": "Papá",
+      "default": "Papá"
+    },
+    {
+      "type": "text",
+      "id": "t28",
+      "label": "Asalto 3",
+      "default": "Asalto 3"
+    },
+    {
+      "type": "text",
+      "id": "t29",
+      "label": "Partida de ejemplo",
+      "default": "Partida de ejemplo"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Playo · Cartel de la velada"
+    }
+  ]
+}
+{% endschema %}

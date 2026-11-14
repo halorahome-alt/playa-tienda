@@ -1,7 +1,67 @@
 {
   "layout": "playo",
   "sections": {
-    "main": { "type": "playo-landing", "settings": { "product_handle": "maquina-de-boxeo-musical-de-pared" } }
+    "playo-cabecera": {
+      "type": "playo-cabecera",
+      "settings": {}
+    },
+    "playo-portada": {
+      "type": "playo-portada",
+      "settings": {}
+    },
+    "playo-cartel": {
+      "type": "playo-cartel",
+      "settings": {}
+    },
+    "playo-como-funciona": {
+      "type": "playo-como-funciona",
+      "settings": {}
+    },
+    "playo-para-quien": {
+      "type": "playo-para-quien",
+      "settings": {}
+    },
+    "playo-de-cerca": {
+      "type": "playo-de-cerca",
+      "settings": {}
+    },
+    "playo-en-la-caja": {
+      "type": "playo-en-la-caja",
+      "settings": {}
+    },
+    "playo-envio": {
+      "type": "playo-envio",
+      "settings": {}
+    },
+    "playo-opiniones": {
+      "type": "playo-opiniones",
+      "settings": {}
+    },
+    "playo-preguntas": {
+      "type": "playo-preguntas",
+      "settings": {}
+    },
+    "playo-cierre": {
+      "type": "playo-cierre",
+      "settings": {}
+    },
+    "playo-pie": {
+      "type": "playo-pie",
+      "settings": {}
+    }
   },
-  "order": ["main"]
+  "order": [
+    "playo-cabecera",
+    "playo-portada",
+    "playo-cartel",
+    "playo-como-funciona",
+    "playo-para-quien",
+    "playo-de-cerca",
+    "playo-en-la-caja",
+    "playo-envio",
+    "playo-opiniones",
+    "playo-preguntas",
+    "playo-cierre",
+    "playo-pie"
+  ]
 }

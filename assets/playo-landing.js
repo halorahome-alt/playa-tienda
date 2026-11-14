@@ -148,8 +148,8 @@ document.addEventListener('DOMContentLoaded',function(){try{
   function payUI(){const p=$('input[name=pack]:checked'),card=$('input[name=pay]:checked').value==='card',t=+p.dataset.price-(card?CARD_OFF:0);
     $('#payTotal').textContent=fmt(t);$('#sumTot').textContent=fmt(t);$('#bdSub').textContent=fmt(+p.dataset.price);$('#bdLabel').textContent=p.dataset.label;
     $$('input[name=dpack]').forEach(r=>r.checked=r.value===p.value);$('#payVerb').textContent=card?'Pagar':'Confirmar';
-    $('#paySub').textContent=card?'Pago seguro · Envío gratis':'Pagas al recibir · Envío gratis';
-    $('#payNote').textContent=card?'Pago cifrado. Se cobra al confirmar el pedido.':'No te cobramos nada ahora.';
+    
+    
     $('#doneMsg').textContent=card?'Pago recibido. Te escribimos por WhatsApp con el seguimiento.':'Te escribimos por WhatsApp en unos minutos para confirmar. Pagas cuando te llegue.'}
   $$('input[name=dpack]').forEach(r=>r.addEventListener('change',()=>{const m=$('input[name=pack][value="'+r.value+'"]');m.checked=true;m.dispatchEvent(new Event('change',{bubbles:true}))}));
   // Código postal → provincia
@@ -157,14 +157,21 @@ document.addEventListener('DOMContentLoaded',function(){try{
   $('#fZip').addEventListener('input',e=>{const v=e.target.value.replace(/\D/g,'').slice(0,5);e.target.value=v;if(v.length>=2&&PROV[v.slice(0,2)]){const sel=$('#fProv');sel.value=PROV[v.slice(0,2)];sel.closest('label.f').classList.remove('bad');sel.classList.add('auto');setTimeout(()=>sel.classList.remove('auto'),900)}});
   $$('input[name=pay]').forEach(i=>i.addEventListener('change',payUI));$$('input[name=pack]').forEach(i=>i.addEventListener('change',payUI));payUI();
 
-  // Shopify: el boton de pedido anade el pack elegido al carrito y abre el checkout
+  // Shopify: el formulario lleva el pack al checkout con la direccion ya rellenada
   const VARIANTS=window.PLAYO_VARIANTS||{};
-  $$('[data-order]').forEach(x=>x.addEventListener('click',async ev=>{ev.preventDefault();ev.stopImmediatePropagation();
-    const p=document.querySelector('input[name=pack]:checked'),id=VARIANTS[p?p.value:'1'];
+  const PCODE={'A Coruña':'C','Álava':'VI','Albacete':'AB','Alicante':'A','Almería':'AL','Asturias':'O','Ávila':'AV','Badajoz':'BA','Baleares':'PM','Illes Balears':'PM','Barcelona':'B','Burgos':'BU','Cáceres':'CC','Cádiz':'CA','Cantabria':'S','Castellón':'CS','Ciudad Real':'CR','Córdoba':'CO','Cuenca':'CU','Girona':'GI','Granada':'GR','Guadalajara':'GU','Guipúzcoa':'SS','Gipuzkoa':'SS','Huelva':'H','Huesca':'HU','Jaén':'J','La Rioja':'LO','León':'LE','Lleida':'L','Lugo':'LU','Madrid':'M','Málaga':'MA','Murcia':'MU','Navarra':'NA','Ourense':'OR','Palencia':'P','Pontevedra':'PO','Salamanca':'SA','Segovia':'SG','Sevilla':'SE','Soria':'SO','Tarragona':'T','Teruel':'TE','Toledo':'TO','Valencia':'V','Valladolid':'VA','Vizcaya':'BI','Bizkaia':'BI','Zamora':'ZA','Zaragoza':'Z'};
+  const of=document.getElementById('orderForm');
+  if(of)of.addEventListener('submit',ev=>{ev.preventDefault();ev.stopImmediatePropagation();
+    of.querySelectorAll('label.f').forEach(l=>{const i=l.querySelector('input,select');if(i)l.classList.toggle('bad',!i.checkValidity())});
+    const bad=[...of.querySelectorAll('input,select')].find(i=>!i.checkValidity());if(bad){bad.focus();return}
+    const p=document.querySelector('input[name=dpack]:checked')||document.querySelector('input[name=pack]:checked'),id=VARIANTS[p?p.value:'1'];
     if(!id){location.href='/cart';return}
-    x.setAttribute('aria-busy','true');
-    try{const r=await fetch('/cart/add.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:[{id:+id,quantity:1}]})});if(!r.ok)throw 0;location.href='/checkout'}
-    catch(e){x.removeAttribute('aria-busy');location.href='/cart'}},true));
+    const g=i=>(document.getElementById(i)||{}).value.trim(),nm=g('fName').split(/\s+/),first=nm.shift(),last=nm.join(' ')||'-';
+    let ph=g('fPhone').replace(/[^0-9+]/g,'');if(ph[0]!=='+')ph='+34'+ph;
+    const S='checkout[shipping_address]',q=new URLSearchParams();
+    [['first_name',first],['last_name',last],['address1',g('fAddr')],['zip',g('fZip')],['city',g('fCity')],['country','ES'],['province',PCODE[g('fProv')]||g('fProv')],['phone',ph]].forEach(([k,v])=>q.append(S+'['+k+']',v));
+    const b=of.querySelector('button[type=submit]');if(b)b.setAttribute('aria-busy','true');
+    location.href='/cart/'+id+':1?'+q.toString()},true);
   const dlg=$('#order'),form=$('#orderForm'),done=$('#done');
   $$('[data-order]').forEach(x=>x.addEventListener('click',()=>{form.hidden=false;done.hidden=true;dlg.showModal()}));
   $('#closeDlg').onclick=()=>dlg.close();$('#closeDone').onclick=()=>dlg.close();

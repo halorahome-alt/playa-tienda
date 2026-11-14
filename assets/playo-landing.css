@@ -556,3 +556,7 @@ select.auto{border-color:var(--ok)!important;background:#effaf4!important;transi
 .rail>.card{-webkit-transform:translateZ(0);transform:translateZ(0)}
 .rail>.card.on,.rail>.card:hover{transform:translateY(-4px)}
 .ask a.wa{text-decoration:none;user-select:auto;display:inline-block}
+footer .soc{display:flex;gap:10px;margin-top:16px}
+footer .soc a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.25);color:#fff}
+footer .soc a:hover{border-color:#F5B800;color:#F5B800}
+footer .soc svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}

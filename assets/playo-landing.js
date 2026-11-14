@@ -170,6 +170,7 @@ document.addEventListener('DOMContentLoaded',function(){try{
     let ph=g('fPhone').replace(/[^0-9+]/g,'');if(ph[0]!=='+')ph='+34'+ph;
     const S='checkout[shipping_address]',q=new URLSearchParams();
     [['first_name',first],['last_name',last],['address1',g('fAddr')],['zip',g('fZip')],['city',g('fCity')],['country','ES'],['province',PCODE[g('fProv')]||g('fProv')],['phone',ph]].forEach(([k,v])=>q.append(S+'['+k+']',v));
+    const em=g('fMail');if(em){q.append('checkout[email]',em);q.append('checkout[email_or_phone]',em)}else q.append('checkout[email_or_phone]',ph);
     const b=of.querySelector('button[type=submit]');if(b)b.setAttribute('aria-busy','true');
     location.href='/cart/'+id+':1?'+q.toString()},true);
   const dlg=$('#order'),form=$('#orderForm'),done=$('#done');

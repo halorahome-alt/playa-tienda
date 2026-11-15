@@ -1,19 +1,19 @@
 <section class="canvas-sec"><div class="wrap">
   <div class="sh"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
   <div class="flow" id="flow">
-    <div class="v9"><span class="corner g tg">{{ section.settings.t4 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t5 }}</q><span class="w9">{{ section.settings.t6 }}</span></div>
-    <div class="v9"><span class="corner b tg">{{ section.settings.t7 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t8 }}</q><span class="w9">{{ section.settings.t9 }}</span></div>
-    <div class="v9"><span class="corner r tg">{{ section.settings.t10 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t11 }}</q><span class="w9">{{ section.settings.t12 }}</span></div>
-    <div class="v9"><span class="corner b tg">{{ section.settings.t13 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t14 }}</q><span class="w9">{{ section.settings.t15 }}</span></div>
-    <div class="v9"><span class="corner r tg">{{ section.settings.t16 }}</span><span class="play"></span><span class="st">★★★★★</span><q>{{ section.settings.t17 }}</q><span class="w9">{{ section.settings.t18 }}</span></div>
+    <div class="v9 has-v"><video class="v9v" src="{{ 'playo-velada.mp4' | asset_url }}" poster="{{ 'playo-velada-poster.jpg' | asset_url }}" muted loop playsinline autoplay preload="metadata"></video><span class="corner g tg">{{ section.settings.t4 }}</span><q>{{ section.settings.t5 }}</q><span class="w9">{{ section.settings.t6 }}</span></div>
+    <div class="v9"><span class="corner b tg">{{ section.settings.t7 }}</span><span class="play"></span>{%- if section.settings.show_reviews -%}<span class="st">★★★★★</span>{%- endif -%}<q>{{ section.settings.t8 }}</q><span class="w9">{{ section.settings.t9 }}</span></div>
+    <div class="v9"><span class="corner r tg">{{ section.settings.t10 }}</span><span class="play"></span>{%- if section.settings.show_reviews -%}<span class="st">★★★★★</span>{%- endif -%}<q>{{ section.settings.t11 }}</q><span class="w9">{{ section.settings.t12 }}</span></div>
+    <div class="v9"><span class="corner b tg">{{ section.settings.t13 }}</span><span class="play"></span>{%- if section.settings.show_reviews -%}<span class="st">★★★★★</span>{%- endif -%}<q>{{ section.settings.t14 }}</q><span class="w9">{{ section.settings.t15 }}</span></div>
+    <div class="v9"><span class="corner r tg">{{ section.settings.t16 }}</span><span class="play"></span>{%- if section.settings.show_reviews -%}<span class="st">★★★★★</span>{%- endif -%}<q>{{ section.settings.t17 }}</q><span class="w9">{{ section.settings.t18 }}</span></div>
     <div class="flow-nav"><button type="button" id="flowPrev" aria-label="Vídeo anterior">←</button><button type="button" id="flowNext" aria-label="Vídeo siguiente">→</button></div>
   </div>
   
-  <div class="rv">
+  {%- if section.settings.show_reviews -%}<div class="rv">
     <div class="big">—<small>{{ section.settings.t19 }}<br>{{ section.settings.t20 }}</small></div>
     <div class="bars" aria-hidden="true"><span>5★</span><i></i><span>0</span><span>4★</span><i></i><span>0</span><span>3★</span><i></i><span>0</span><span>2★</span><i></i><span>0</span><span>1★</span><i></i><span>0</span></div>
     <p>{{ section.settings.t21 }}</p>
-  </div>
+  </div>{%- endif -%}
 </div></section>
 
 {% schema %}
@@ -43,20 +43,20 @@
     {
       "type": "text",
       "id": "t4",
-      "label": "Tu vídeo",
-      "default": "Tu vídeo"
+      "label": "Velada en casa",
+      "default": "Velada en casa"
     },
     {
       "type": "text",
       "id": "t5",
-      "label": "Aquí irá tu vídeo golpeando al ritmo",
-      "default": "Aquí irá tu vídeo golpeando al ritmo"
+      "label": "Padre contra hijo, ¿quién gana?",
+      "default": "Padre contra hijo, ¿quién gana?"
     },
     {
       "type": "text",
       "id": "t6",
-      "label": "Prueba en casa · 15 s",
-      "default": "Prueba en casa · 15 s"
+      "label": "Así queda en el salón · 13 s",
+      "default": "Así queda en el salón · 13 s"
     },
     {
       "type": "text",
@@ -147,6 +147,12 @@
       "id": "t21",
       "label": "Solo publicamos opiniones de quien la ha recibido, con nombr",
       "default": "Solo publicamos opiniones de quien la ha recibido, con nombre y ciudad. También las que no son de 5 estrellas."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Mostrar opiniones y estrellas",
+      "default": false
     }
   ],
   "presets": [

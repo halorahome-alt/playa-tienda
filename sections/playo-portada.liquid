@@ -31,14 +31,14 @@
       <div class="rope-set" aria-hidden="true"><i></i><i></i><i></i></div>
       <span class="post l" aria-hidden="true"></span><span class="post r" aria-hidden="true"></span>
       <img class="photo" id="stagePhoto" alt="" hidden>
-      <video class="photo" id="stageVid" src="{{ 'playo-golpe.mp4' | asset_url }}" poster="{{ 'playo-golpe.jpg' | asset_url }}" muted loop playsinline preload="none" hidden aria-label="Vídeo: golpeando la máquina en la pared"></video>
+      <video class="photo" id="stageVid" src="{{ 'playo-galeria.mp4' | asset_url }}" poster="{{ 'playo-galeria.jpg' | asset_url }}" muted loop playsinline preload="none" hidden aria-label="Vídeo: golpeando la máquina en la pared"></video>
     </div>
     <div class="thumbs" role="group" aria-label="Galería">
       <button aria-pressed="true" data-src=""><img src="{% if section.settings.img2 %}{{ section.settings.img2 | image_url: width: 1600 }}{% else %}{{ 'playo-maquina.webp' | asset_url }}{% endif %}" alt="Vista frontal"></button>
-      <button aria-pressed="false" data-video="1" class="vthumb"><img src="{% if section.settings.img3 %}{{ section.settings.img3 | image_url: width: 1600 }}{% else %}{{ 'playo-golpe.jpg' | asset_url }}{% endif %}" alt="Vídeo en la pared"><span class="pl" aria-hidden="true"></span></button>
+      <button aria-pressed="false" data-video="1" class="vthumb"><img src="{% if section.settings.img3 %}{{ section.settings.img3 | image_url: width: 1600 }}{% else %}{{ 'playo-galeria.jpg' | asset_url }}{% endif %}" alt="Vídeo en la pared"><span class="pl" aria-hidden="true"></span></button>
       <button aria-pressed="false" data-src="{{ 'playo-hd-bodegon.webp' | asset_url }}"><img src="{% if section.settings.img4 %}{{ section.settings.img4 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-bodegon.webp' | asset_url }}{% endif %}" alt="Máquina con guantes, cable y manual"></button>
-      <button aria-pressed="false" data-src="{{ 'playo-hd-luces.webp' | asset_url }}"><img src="{% if section.settings.img5 %}{{ section.settings.img5 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-luces.webp' | asset_url }}{% endif %}" alt="Luces LED encendidas de cerca"></button>
-      <button aria-pressed="false" data-src="{{ 'playo-hd-marcador.webp' | asset_url }}"><img src="{% if section.settings.img6 %}{{ section.settings.img6 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-marcador.webp' | asset_url }}{% endif %}" alt="Marcador LED contando aciertos"></button>
+      <button aria-pressed="false" data-src="{{ 'playo-hd-luces-v2.webp' | asset_url }}"><img src="{% if section.settings.img5 %}{{ section.settings.img5 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-luces-v2.webp' | asset_url }}{% endif %}" alt="Luces LED encendidas de cerca"></button>
+      <button aria-pressed="false" data-src="{{ 'playo-hd-familia.webp' | asset_url }}"><img src="{% if section.settings.img6 %}{{ section.settings.img6 | image_url: width: 1600 }}{% else %}{{ 'playo-hd-familia.webp' | asset_url }}{% endif %}" alt="Padre e hijo jugando en el salón"></button>
     </div>
     <div class="ctrl">
       <button type="button" class="chipbtn" id="soundBtn" aria-pressed="false"><span class="eq"><i></i><i></i><i></i><i></i></span><span>{{ section.settings.t4 }}</span></button>
@@ -429,7 +429,7 @@
     {
       "type": "image_picker",
       "id": "img3",
-      "label": "Imagen 3 (playo-golpe.jpg)"
+      "label": "Imagen 3 (portada del vídeo)"
     },
     {
       "type": "image_picker",
@@ -439,12 +439,12 @@
     {
       "type": "image_picker",
       "id": "img5",
-      "label": "Imagen 5 (playo-hd-luces.webp)"
+      "label": "Imagen 5 (luces de cerca)"
     },
     {
       "type": "image_picker",
       "id": "img6",
-      "label": "Imagen 6 (playo-hd-marcador.webp)"
+      "label": "Imagen 6 (en familia)"
     }
   ],
   "presets": [

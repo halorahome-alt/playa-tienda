@@ -394,6 +394,8 @@ label.f.bad input,label.f.bad select{border-color:var(--red)}
 .rv-in{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .rv-in.pre{transform:translateY(26px)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* La cinta sigue moviéndose aunque el móvil tenga "Reducir movimiento" (más lenta) */
+@media (prefers-reduced-motion:reduce){.band .mq-track{animation:mq 40s linear infinite!important}}
 
 /* FANS: crea su cartel */
 .fans{padding:clamp(64px,9vw,120px) 0;position:relative;overflow:hidden}

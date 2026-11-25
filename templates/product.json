@@ -46,6 +46,10 @@
       "type": "playo-opiniones",
       "settings": {}
     },
+    "playo-navidad": {
+      "type": "playo-navidad",
+      "settings": {}
+    },
     "playo-preguntas": {
       "type": "playo-preguntas",
       "settings": {}
@@ -69,6 +73,7 @@
     "playo-en-la-caja",
     "playo-envio",
     "playo-opiniones",
+    "playo-navidad",
     "playo-preguntas",
     "playo-cierre",
     "playo-pie"

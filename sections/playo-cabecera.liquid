@@ -2,7 +2,7 @@
 
 
 <div class="hud"><div class="wrap">
-  <span class="cd"><i></i><span>{{ section.settings.t1 }}</span></span>
+  <span class="cd"{% if section.settings.xmas_fin != blank %} data-fin="{{ section.settings.xmas_fin | escape }}" data-txt="{{ section.settings.xmas_txt | escape }}"{% endif %}><i></i><span>{{ section.settings.t1 }}</span></span>
   <div class="msgs" id="msgs">
     <span class="on">{{ section.settings.t2 }}</span>
     <span>{{ section.settings.t3 }}</span>
@@ -22,6 +22,19 @@
   "tag": "div",
   "class": "playo-sec",
   "settings": [
+    {
+      "type": "text",
+      "id": "xmas_txt",
+      "label": "Cuenta atrás: texto",
+      "default": "Para Navidad, pide en"
+    },
+    {
+      "type": "text",
+      "id": "xmas_fin",
+      "label": "Cuenta atrás: último día (AAAA-MM-DD)",
+      "info": "Último día para pedir y recibirlo a tiempo. Al pasar, vuelve a salir el texto de envío. Déjalo vacío para quitar la cuenta atrás.",
+      "default": "2026-12-18"
+    },
     {
       "type": "text",
       "id": "t1",

@@ -1,0 +1,40 @@
+{%- liquid
+  if product and product.handle == 'maquina-de-boxeo-musical-de-pared'
+    assign playo_product = product
+  else
+    assign playo_product = all_products['maquina-de-boxeo-musical-de-pared']
+  endif
+  assign p1 = playo_product.variants[0].price | default: 5999
+-%}
+<section class="canvas-sec xmas-sec"><div class="wrap">
+  <div class="xmas-card">
+    <div class="sh c" style="margin-bottom:0"><span class="eb">{{ section.settings.t1 }}</span><h2>{{ section.settings.t2 }}<br><span class="ac">{{ section.settings.t3 }}</span></h2></div>
+    <p class="lead">{{ section.settings.t4 }}</p>
+    <ul class="xmas-pts">
+      <li>{{ section.settings.t5 }}</li>
+      <li>{{ section.settings.t6 }}</li>
+      <li>{{ section.settings.t7 }}</li>
+    </ul>
+    <button class="btn cta" style="max-width:440px" type="button" data-order><span>{{ section.settings.t8 }} <span data-total>{{ p1 | money_without_currency }} €</span></span><small>{{ section.settings.t9 }}</small></button>
+  </div>
+</div></section>
+
+{% schema %}
+{
+  "name": "Regalo de Navidad",
+  "tag": "div",
+  "class": "playo-sec",
+  "settings": [
+    { "type": "text", "id": "t1", "label": "Etiqueta", "default": "Regalo de Navidad" },
+    { "type": "text", "id": "t2", "label": "Título, línea 1", "default": "¿Otro regalo" },
+    { "type": "text", "id": "t3", "label": "Título, línea 2", "default": "que dura dos días?" },
+    { "type": "textarea", "id": "t4", "label": "Texto", "default": "Juguetes que acaban en el armario y pantallas que aíslan. Playo se queda en la pared del salón: cada noche, una velada nueva con su música." },
+    { "type": "text", "id": "t5", "label": "Punto 1", "default": "Se juega en familia, sin pantallas" },
+    { "type": "text", "id": "t6", "label": "Punto 2", "default": "Llega en 24-48 h, a tiempo para Navidad" },
+    { "type": "text", "id": "t7", "label": "Punto 3", "default": "Paga con tarjeta o al recibir" },
+    { "type": "text", "id": "t8", "label": "Botón", "default": "Regálala ·" },
+    { "type": "text", "id": "t9", "label": "Botón, texto pequeño", "default": "Envío gratis · 14 días de devolución" }
+  ],
+  "presets": [{ "name": "Regalo de Navidad" }]
+}
+{% endschema %}

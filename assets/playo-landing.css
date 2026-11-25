@@ -676,3 +676,5 @@ html.xm .buy .btn.cta::before{animation:xmShine 6s ease-in-out infinite!importan
 /* Etiquetas en los packs del formulario */
 .dp .dp-badge{top:-10px;right:12px;font-size:10.5px;padding:3px 8px;z-index:1}
 .dpacks .dp:has(.dp-badge){margin-top:8px}
+.dp small{display:block}
+.dp .dp-per{color:var(--muted)!important;font-weight:500!important}

@@ -1,4 +1,5 @@
 <span id="top"></span>
+{%- if section.settings.xmas_on -%}<script>document.documentElement.classList.add('xm')</script>{%- endif -%}
 
 
 <div class="hud"{% if section.settings.xmas_fin != blank %} data-fin="{{ section.settings.xmas_fin | escape }}" data-txt="{{ section.settings.xmas_txt | escape }}"{% endif %}><div class="tk"><div class="tk-track" id="tk">
@@ -13,6 +14,7 @@
   <nav class="links" aria-label="Secciones"><a href="#asaltos">{{ section.settings.t6 }}</a><a href="#categorias">{{ section.settings.t7 }}</a><a href="#cerca">{{ section.settings.t8 }}</a><a href="#faq">{{ section.settings.t9 }}</a></nav>
   <button class="btn sm" data-order>{{ section.settings.t10 }}</button>
 </div></header>
+{%- if section.settings.xmas_on -%}<div class="xm-lights" aria-hidden="true"><i style="left:14px"></i><i style="left:60px"></i><i style="left:106px"></i><i style="left:152px"></i><i style="left:198px"></i><i style="left:244px"></i><i style="left:290px"></i><i style="left:336px"></i><i style="left:382px"></i><i style="left:428px"></i><i style="left:474px"></i><i style="left:520px"></i><i style="left:566px"></i><i style="left:612px"></i><i style="left:658px"></i><i style="left:704px"></i><i style="left:750px"></i><i style="left:796px"></i><i style="left:842px"></i><i style="left:888px"></i><i style="left:934px"></i><i style="left:980px"></i><i style="left:1026px"></i><i style="left:1072px"></i><i style="left:1118px"></i><i style="left:1164px"></i><i style="left:1210px"></i><i style="left:1256px"></i><i style="left:1302px"></i><i style="left:1348px"></i><i style="left:1394px"></i><i style="left:1440px"></i><i style="left:1486px"></i><i style="left:1532px"></i><i style="left:1578px"></i><i style="left:1624px"></i><i style="left:1670px"></i><i style="left:1716px"></i><i style="left:1762px"></i><i style="left:1808px"></i><i style="left:1854px"></i><i style="left:1900px"></i><i style="left:1946px"></i><i style="left:1992px"></i><i style="left:2038px"></i><i style="left:2084px"></i><i style="left:2130px"></i><i style="left:2176px"></i></div>{%- endif -%}
 
 {% schema %}
 {
@@ -20,6 +22,12 @@
   "tag": "div",
   "class": "playo-sec",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "xmas_on",
+      "label": "Modo Navidad (nieve, luces, gorro y animaciones)",
+      "default": true
+    },
     {
       "type": "text",
       "id": "xmas_txt",

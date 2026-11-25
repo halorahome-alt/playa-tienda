@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded',function(){try{
   // Vídeos: solo se reproducen cuando se ven
   if('IntersectionObserver' in window){const vio=new IntersectionObserver(es=>es.forEach(en=>{const v=en.target;if(en.isIntersecting&&!reduce){v.play().catch(()=>{})}else v.pause()}),{threshold:.35});$$('.lazyv').forEach(v=>vio.observe(v))}
   // Cinta
-  const words=[['¡Ding, ding!',0],['★',2],['Rincón azul',1],['vs',0],['Rincón rojo',1],['★',2],['Su propia velada',0],['★',2],['Canción de entrada',1],['★',2],['Tarjeta o al recibir',0],['★',2]];
+  const words=document.documentElement.classList.contains('xm')?[['¡Ding, ding!',0],['★',2],['Velada de Nochebuena',1],['★',2],['Papá vs peque',0],['★',2],['El regalo de este año',1],['★',2],['Envío gratis 24-48 h',0],['★',2],['Paga al recibir',1],['★',2]]:[['¡Ding, ding!',0],['★',2],['Rincón azul',1],['vs',0],['Rincón rojo',1],['★',2],['Su propia velada',0],['★',2],['Canción de entrada',1],['★',2],['Tarjeta o al recibir',0],['★',2]];
   const seq=words.map(([t,o])=>o===2?'<span class="mq-star">★</span>':'<span class="mq-i'+(o?' o':'')+'">'+t+'</span>').join('');
   $('#mq').innerHTML=seq+seq;
 
@@ -202,3 +202,19 @@ document.addEventListener('DOMContentLoaded',function(){try{
 })();
 
 }catch(e){console.warn('Playo',e)}});
+
+/* Navidad: nieve, copos al golpear, estrellas y títulos con rebote */
+(function(){if(!document.documentElement.classList.contains('xm'))return;
+  var R=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var c=document.createElement('canvas');c.id='xmSnowC';document.body.appendChild(c);var x=c.getContext('2d'),W,H,F=[];
+  function rs(){W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio}rs();addEventListener('resize',rs);
+  var N=innerWidth<700?45:90;for(var i=0;i<N;i++)F.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*2.2,s:.15+Math.random()*.5,w:Math.random()*6.28});
+  function fr(){x.clearRect(0,0,W,H);var d=devicePixelRatio,k=R?.45:1;for(var i=0;i<F.length;i++){var f=F[i];f.y+=f.s*k/H*d*2.2;f.w+=.012*k;if(f.y>1.02){f.y=-.02;f.x=Math.random()}
+    var px=(f.x*W)+Math.sin(f.w)*14*d,py=f.y*H;x.beginPath();x.arc(px,py,f.r*d,0,6.28);x.fillStyle='rgba(255,255,255,'+(.35+f.r/4)+')';x.fill()}requestAnimationFrame(fr)}fr();
+  document.querySelectorAll('.pad').forEach(function(p){p.addEventListener('click',function(){var m=document.getElementById('machine');var r=p.getBoundingClientRect(),q=m.getBoundingClientRect();
+    for(var i=0;i<8;i++){var e=document.createElement('span');e.className='xm-burst';e.textContent=i%2?'❄':'✦';var a=i/8*6.28;e.style.left=(r.left-q.left+r.width/2)+'px';e.style.top=(r.top-q.top+r.height/2)+'px';e.style.setProperty('--dx',Math.cos(a)*70+'px');e.style.setProperty('--dy',Math.sin(a)*70+'px');m.appendChild(e);setTimeout(function(n){n.remove()},950,e)}})});
+  document.querySelectorAll('section.night').forEach(function(sec){var d=document.createElement('div');d.className='xm-stars';d.setAttribute('aria-hidden','true');
+    for(var i=0;i<22;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(-Math.random()*3)+'s';s.style.opacity=.5;d.appendChild(s)}sec.prepend(d)});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('xm-pop');io.unobserve(e.target)}})},{threshold:.3});
+  document.querySelectorAll('main h2').forEach(function(h){io.observe(h)});
+})();

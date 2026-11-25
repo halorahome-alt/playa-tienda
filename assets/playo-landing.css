@@ -601,3 +601,74 @@ footer .soc svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-widt
 .hud:hover .tk-track{animation-play-state:paused}
 @keyframes tk{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.hud .tk-track{animation:tk 45s linear infinite!important}}
+
+/* ===== NAVIDAD (se activa/desactiva en Cabecera > Modo Navidad) ===== */
+html:not(.xm) .xm-el{display:none!important}
+
+/* ===== Toque navideño ===== */
+.xm-ann{background:#B3121B;color:#fff;text-align:center;font-family:var(--led-f);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;position:relative}
+.xm-ann b{color:var(--gold)}
+/* guirnalda de luces bajo la cabecera y sobre la cinta */
+.xm-lights{height:22px;position:relative;background:var(--night);overflow:hidden}
+.xm-lights::before{content:"";position:absolute;left:0;right:0;top:-14px;height:24px;border-bottom:2px solid #1d2b4f;border-radius:0 0 50% 50%/0 0 100% 100%;background:none}
+.xm-lights i{position:absolute;top:6px;width:9px;height:13px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:xmTw 1.6s ease-in-out infinite}
+.xm-lights i:nth-child(4n+1){background:#E5262F;box-shadow:0 0 8px #E5262F}
+.xm-lights i:nth-child(4n+2){background:#F5B800;box-shadow:0 0 8px #F5B800;animation-delay:.4s}
+.xm-lights i:nth-child(4n+3){background:#16A36A;box-shadow:0 0 8px #16A36A;animation-delay:.8s}
+.xm-lights i:nth-child(4n+4){background:#3FD0FF;box-shadow:0 0 8px #3FD0FF;animation-delay:1.2s}
+@keyframes xmTw{0%,100%{opacity:1}50%{opacity:.35}}
+/* nieve suave en el cartel */
+.hero{position:relative}
+.xm-snow{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.xm-snow i{position:absolute;top:-10px;border-radius:50%;background:#fff;opacity:.75;animation:xmFall linear infinite}
+@keyframes xmFall{to{transform:translate3d(30px,110vh,0)}}
+.hero .wrap{position:relative;z-index:2}
+/* sello "Edición Navidad" */
+.xm-seal{display:inline-flex;width:max-content;align-self:flex-start;justify-self:start;align-items:center;gap:8px;margin:2px 0 10px;background:#B3121B;color:#fff;border:2px solid var(--gold);border-radius:99px;padding:6px 14px 6px 10px;font-family:var(--led-f);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.xm-seal svg{width:18px;height:18px}
+.xm-gift{display:flex;gap:10px;align-items:center;margin:12px 0 0;padding:10px 12px;border:1.5px dashed rgba(245,184,0,.6);border-radius:12px;color:#fff;font-size:14.5px;line-height:1.35}
+.xm-gift svg{flex:0 0 26px;width:26px;height:26px}
+.xm-gift b{color:var(--gold)}
+/* cinta amarilla en rojo navidad */
+html.xm .band{background:#B3121B!important;color:#fff!important}
+html.xm .band .mq-star{color:var(--gold)!important}
+html.xm .band .mq-i.o{color:#fff!important;-webkit-text-stroke:0!important;opacity:.85}
+@media (prefers-reduced-motion:reduce){.xm-snow{display:none}.xm-lights i{animation:none!important}}
+
+/* ===== Navidad nivel 2: movimiento ===== */
+#xmSnowC{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+.xm-snow{display:none}
+.xm-lights{height:30px}
+.xm-lights i{transform-origin:50% -6px;animation:xmChase 2.4s ease-in-out infinite,xmSway 3.2s ease-in-out infinite}
+@keyframes xmChase{0%,100%{opacity:1;filter:brightness(1.25)}50%{opacity:.25;filter:brightness(.7)}}
+@keyframes xmSway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.xm-hat{position:absolute;width:42%;left:46%;top:-12%;transform:translateX(-12%) rotate(14deg);z-index:7;pointer-events:none;filter:drop-shadow(0 8px 10px rgba(0,0,0,.45));animation:xmHat 3.5s ease-in-out infinite;transform-origin:30% 90%}
+@keyframes xmHat{0%,100%{transform:translateX(-12%) rotate(14deg)}50%{transform:translateX(-12%) rotate(8deg)}}
+.xm-seal{position:relative;overflow:hidden}
+.xm-seal::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:xmShine 3s ease-in-out infinite}
+@keyframes xmShine{0%{left:-60%}60%,100%{left:130%}}
+.xm-seal svg{animation:xmTree 2.4s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes xmTree{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.xm-gift svg{animation:xmJump 2.2s cubic-bezier(.3,1.6,.5,1) infinite;transform-origin:50% 100%}
+@keyframes xmJump{0%,55%,100%{transform:none}65%{transform:translateY(-7px) rotate(-8deg) scale(1.08)}75%{transform:translateY(0) rotate(5deg)}85%{transform:rotate(0)}}
+.xm-gift{background:linear-gradient(90deg,rgba(179,18,27,.18),rgba(245,184,0,.08),rgba(179,18,27,.18));background-size:200% 100%;animation:xmBg 6s linear infinite}
+@keyframes xmBg{to{background-position:-200% 0}}
+html.xm .buy .btn.cta{position:relative;overflow:hidden;animation:xmBell 4s ease-in-out infinite}
+html.xm .buy .btn.cta::before{content:"";position:absolute;top:0;bottom:0;width:30%;left:-40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);animation:xmShine 4s ease-in-out infinite;pointer-events:none}
+@keyframes xmBell{0%,86%,100%{transform:none}88%{transform:rotate(-2.5deg) scale(1.02)}91%{transform:rotate(2.5deg) scale(1.02)}94%{transform:rotate(-1.5deg)}97%{transform:rotate(1deg)}}
+.xm-burst{position:absolute;pointer-events:none;z-index:9;font-size:18px;color:#fff;text-shadow:0 0 8px #3FD0FF;animation:xmBurst .9s ease-out forwards}
+@keyframes xmBurst{from{opacity:1;transform:translate(-50%,-50%) scale(.6)}to{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.2) rotate(180deg)}}
+html.xm .night{position:relative}
+.xm-stars{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.xm-stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 6px #fff;animation:xmTw 2.6s ease-in-out infinite}
+html.xm .night>.wrap{position:relative;z-index:1}
+.xm-pop{animation:xmPop .9s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes xmPop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+.xm-lights i{animation:xmChase 4s ease-in-out infinite!important}
+.xm-seal::after{animation:xmShine 5s ease-in-out infinite!important}
+.xm-gift svg{animation:xmJump 4s ease-in-out infinite!important}
+html.xm .buy .btn.cta{animation:xmBell 6s ease-in-out infinite!important}
+html.xm .buy .btn.cta::before{animation:xmShine 6s ease-in-out infinite!important}
+.xm-stars i{animation:xmTw 4s ease-in-out infinite!important}
+.xm-hat{animation:xmHat 6s ease-in-out infinite!important}}

@@ -26,7 +26,7 @@
       <span class="spot" aria-hidden="true"></span>
       <div class="score-plate" aria-live="polite"><span class="b">{{ section.settings.t1 }}</span><b id="heroScore">000</b><span class="r">{{ section.settings.t2 }}</span></div>
       <span class="try" id="tryTxt">{{ section.settings.t3 }}</span>
-      <div class="machine-wrap" id="machine">
+      <div class="machine-wrap" id="machine"><svg class="xm-hat xm-el" viewBox="0 0 120 100" aria-hidden="true"><path d="M14 78 C30 30 62 8 96 22 C104 26 108 40 104 52 C96 44 86 42 78 46 C70 52 66 66 66 80 Z" fill="#D42027"/><path d="M40 44 C56 26 80 20 96 22" stroke="#9C121A" stroke-width="4" fill="none" opacity=".5"/><rect x="6" y="72" width="70" height="18" rx="9" fill="#fff"/><circle cx="104" cy="58" r="11" fill="#fff"/></svg>
         <img class="machine" src="{% if section.settings.img1 %}{{ section.settings.img1 | image_url: width: 1600 }}{% else %}{{ 'playo-maquina.webp' | asset_url }}{% endif %}" alt="Máquina de boxeo musical con las seis dianas iluminadas">
         <button class="pad" style="left:29.6%;top:19.9%" aria-label="Diana 1"></button>
         <button class="pad" style="left:62.1%;top:18.5%" aria-label="Diana 2"></button>
@@ -58,8 +58,9 @@
 
   <form class="buy" id="buy" onsubmit="return false">
     <div class="poster-top"><span class="corner b">{{ section.settings.t9 }}</span><span class="vs">{{ section.settings.t10 }}</span><span class="corner r">{{ section.settings.t11 }}</span></div>
+    <span class="xm-seal xm-el"><svg viewBox="0 0 24 24" fill="#16A36A"><path d="M12 2l4 6h-2.5l3.5 5h-2.5l4 6H5.5l4-6H7l3.5-5H8z"/><rect x="11" y="19" width="2" height="3" fill="#8B5A2B"/><circle cx="12" cy="2.5" r="1.6" fill="#F5B800"/></svg>Edición Navidad</span>
     <h1>{{ section.settings.t12 }}<span class="l2">{{ section.settings.t13 }}</span><small>{{ section.settings.t14 }}</small></h1>
-    <div class="price-row"><span class="price-big" data-total>{{ p1 | money_without_currency }} €</span><span class="cod">{{ section.settings.t15 }}</span></div>
+    <div class="price-row"><span class="price-big" data-total>{{ p1 | money_without_currency }} €</span><span class="cod">{{ section.settings.t15 }}</span></div><p class="xm-gift xm-el"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B800" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12h18"/><path d="M12 8c-1.5-3.5-5.5-4-5.5-1.5S9.5 8 12 8zM12 8c1.5-3.5 5.5-4 5.5-1.5S14.5 8 12 8z"/></svg><span><b>El regalo de Navidad para toda la familia.</b> Pídelo ahora y recíbelo en 24-48 h, con tiempo para el árbol.</span></p>
     <p class="muted">{{ section.settings.t16 }}</p>
 
 

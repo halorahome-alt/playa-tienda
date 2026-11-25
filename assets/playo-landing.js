@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded',function(){try{
   function total(){const p=$('input[name=pack]:checked');$$('[data-total]').forEach(e=>e.textContent=fmt(+p.dataset.price));$('#stickyPack').textContent=(p.value==='2'?'2 máquinas':'1 máquina')+' · tarjeta o al recibir'}
   $$('input[name=pack]').forEach(i=>i.addEventListener('change',total));
 
+  // Cuenta atrás real hasta el último día para recibirla antes de Navidad
+  (function(){const cd=document.querySelector('.hud .cd[data-fin]');if(!cd)return;const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(cd.dataset.fin.trim());if(!m)return;
+    const fin=new Date(Date.UTC(+m[1],+m[2]-1,+m[3],22,59,59)),out=cd.querySelector('span'),orig=out.textContent,hud=cd.closest('.hud');
+    function tick(){const ms=fin-Date.now();if(ms<=0){out.textContent=orig;hud.classList.remove('xmas');return false}
+      const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,mn=Math.floor(ms/6e4)%60;out.textContent=cd.dataset.txt+' '+(d?d+'d ':'')+p2(h)+'h '+p2(mn)+'m';hud.classList.add('xmas');return true}
+    if(tick()){const iv=setInterval(()=>{if(!tick())clearInterval(iv)},30000)}})();
+
   const msgs=$$('#msgs span');let mi=0;
   if(!reduce)setInterval(()=>{msgs[mi].classList.remove('on');mi=(mi+1)%msgs.length;msgs[mi].classList.add('on')},3200);
 

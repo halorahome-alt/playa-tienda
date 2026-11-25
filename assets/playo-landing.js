@@ -8,15 +8,22 @@ document.addEventListener('DOMContentLoaded',function(){try{
   function total(){const p=$('input[name=pack]:checked');$$('[data-total]').forEach(e=>e.textContent=fmt(+p.dataset.price));$('#stickyPack').textContent=(p.dataset.short||'1 máquina')+' · tarjeta o al recibir'}
   $$('input[name=pack]').forEach(i=>i.addEventListener('change',total));
 
-  // Cuenta atrás real hasta el último día para recibirla antes de Navidad
-  (function(){const cd=document.querySelector('.hud .cd[data-fin]');if(!cd)return;const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(cd.dataset.fin.trim());if(!m)return;
-    const fin=new Date(Date.UTC(+m[1],+m[2]-1,+m[3],22,59,59)),out=cd.querySelector('span'),orig=out.textContent,hud=cd.closest('.hud');
-    function tick(){const ms=fin-Date.now();if(ms<=0){out.textContent=orig;hud.classList.remove('xmas');return false}
-      const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,mn=Math.floor(ms/6e4)%60;out.textContent=cd.dataset.txt+' '+(d?d+'d ':'')+p2(h)+'h '+p2(mn)+'m';hud.classList.add('xmas');return true}
-    if(tick()){const iv=setInterval(()=>{if(!tick())clearInterval(iv)},30000)}})();
-
-  const msgs=$$('#msgs span');let mi=0;
-  if(!reduce)setInterval(()=>{msgs[mi].classList.remove('on');mi=(mi+1)%msgs.length;msgs[mi].classList.add('on')},3200);
+  // Cinta superior: fecha límite de Navidad clara + mensajes en movimiento continuo
+  (function(){const hud=document.querySelector('.hud'),tr=document.getElementById('tk');if(!hud||!tr)return;
+    const xm=tr.querySelector('.tk-xm'),MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec((hud.dataset.fin||'').trim());
+    function txt(){if(!m)return '';const fin=new Date(Date.UTC(+m[1],+m[2]-1,+m[3],22,59,59)),ms=fin-Date.now();if(ms<=0)return '';
+      const d=Math.ceil(ms/864e5),h=Math.floor(ms/36e5),mn=Math.floor(ms/6e4)%60;
+      const q=ms>=2*864e5?'quedan '+d+' días':ms>=36e5?'quedan '+h+' h '+mn+' min':'quedan '+Math.max(1,mn)+' min';
+      return '🎄 '+hud.dataset.txt+' '+(+m[3])+' de '+MES[+m[2]-1]+' <b>('+q+')</b>'}
+    function fill(){const t=txt();if(xm){xm.hidden=!t;xm.innerHTML=t}
+      tr.querySelectorAll('.tk-dup').forEach(e=>e.remove());
+      const base=[...tr.children];let w=tr.scrollWidth,n=0;
+      while(n<6&&tr.scrollWidth<2*Math.max(window.innerWidth,w)){base.forEach(e=>{const c=e.cloneNode(true);c.classList.add('tk-dup');c.setAttribute('aria-hidden','true');tr.appendChild(c)});n++}
+      if(n%2===0){base.forEach(e=>{const c=e.cloneNode(true);c.classList.add('tk-dup');c.setAttribute('aria-hidden','true');tr.appendChild(c)})}
+      tr.style.animationDuration=Math.max(18,tr.scrollWidth/2/45)+'s'}
+    fill();setInterval(()=>{const t=txt();if(xm&&xm.innerHTML!==t)fill()},60000);
+    let rw;addEventListener('resize',()=>{clearTimeout(rw);rw=setTimeout(fill,250)})})();
 
 
   function addBiz(d,n){d=new Date(d);while(n>0){d.setDate(d.getDate()+1);if(d.getDay()%6)n--}return d}

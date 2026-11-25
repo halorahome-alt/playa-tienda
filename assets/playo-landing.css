@@ -588,3 +588,16 @@ footer .soc svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-widt
 .opt .duo.trio i:nth-child(2){background:var(--gold)}
 .badge.gold{background:var(--gold);color:var(--ink)}
 .dp input[value="3"]~span small{color:var(--ok);font-weight:700}
+
+/* Cinta superior en movimiento (sustituye a los mensajes que rotaban) */
+.hud{overflow:hidden}
+.hud .tk{overflow:hidden;height:40px;display:flex;align-items:center}
+.hud .tk-track{display:flex;width:max-content;align-items:center;white-space:nowrap;animation:tk 30s linear infinite}
+.hud .tk-i{display:inline-flex;align-items:center;padding:0 22px;font-size:14px;color:#fff}
+.hud .tk-i::after{content:"★";color:var(--gold);margin-left:44px;font-size:12px}
+.hud .tk-i[hidden]{display:none}
+.hud .tk-xm{font-family:var(--led-f);font-weight:700;letter-spacing:.04em;color:var(--gold)}
+.hud .tk-xm b{color:#fff;font-weight:700;margin-left:6px}
+.hud:hover .tk-track{animation-play-state:paused}
+@keyframes tk{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.hud .tk-track{animation:tk 45s linear infinite!important}}

@@ -1,14 +1,12 @@
 <span id="top"></span>
 
 
-<div class="hud"><div class="wrap">
-  <span class="cd"{% if section.settings.xmas_fin != blank %} data-fin="{{ section.settings.xmas_fin | escape }}" data-txt="{{ section.settings.xmas_txt | escape }}"{% endif %}><i></i><span>{{ section.settings.t1 }}</span></span>
-  <div class="msgs" id="msgs">
-    <span class="on">{{ section.settings.t2 }}</span>
-    <span>{{ section.settings.t3 }}</span>
-    <span>{{ section.settings.t4 }}</span>
-  </div>
-</div></div>
+<div class="hud"{% if section.settings.xmas_fin != blank %} data-fin="{{ section.settings.xmas_fin | escape }}" data-txt="{{ section.settings.xmas_txt | escape }}"{% endif %}><div class="tk"><div class="tk-track" id="tk">
+  <span class="tk-i tk-xm" hidden></span>
+  <span class="tk-i">{{ section.settings.t3 }}</span>
+  <span class="tk-i">{{ section.settings.t2 }}</span>
+  <span class="tk-i">{{ section.settings.t4 }}</span>
+</div></div></div>
 
 <header class="site"><span class="prog" id="prog"></span><div class="wrap">
   <a class="logo" href="#top" aria-label="Playo, inicio">{{ section.settings.t5 }}<svg viewBox="0 0 200 200" aria-hidden="true" class="lo"><circle cx="100" cy="100" r="80" fill="#15171c" stroke="#F5B800" stroke-width="30"/><g fill="#3FD0FF"><circle cx="100" cy="52" r="11"/><circle cx="141" cy="76" r="11"/><circle cx="141" cy="124" r="11"/><circle cx="100" cy="148" r="11" fill="#E5262F"/><circle cx="59" cy="124" r="11"/><circle cx="59" cy="76" r="11"/></g><circle cx="100" cy="100" r="17" fill="#2c2f37" stroke="#3FD0FF" stroke-width="4"/></svg></a>
@@ -25,8 +23,8 @@
     {
       "type": "text",
       "id": "xmas_txt",
-      "label": "Cuenta atrás: texto",
-      "default": "Para Navidad, pide en"
+      "label": "Cuenta atrás: texto (detrás se añade la fecha)",
+      "default": "Llega para Navidad si pides antes del"
     },
     {
       "type": "text",

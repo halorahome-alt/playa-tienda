@@ -9,14 +9,22 @@
   assign p1 = v1.price | default: 4999
   assign p2 = v2.price | default: 8499
   assign ahorro = p1 | times: 2 | minus: p2
+  assign v3 = playo_product.variants[2]
+  if v3
+    assign p3 = v3.price
+    assign ahorro3 = p1 | times: 3 | minus: p3
+  endif
 -%}
 <dialog id="order" aria-labelledby="orderTitle">
   <form class="dlg" id="orderForm" novalidate>
     <div class="dlg-head"><h3 id="orderTitle">Tu pedido</h3><button class="x" type="button" id="closeDlg" aria-label="Cerrar">×</button></div>
     <div class="step"><span class="n">1</span>Tu pack</div>
     <div class="dpacks">
-      <label class="dp"><input type="radio" name="dpack" value="1" checked><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""><span><b>1 máquina</b><small>+ guantes</small></span><span class="pr">{{ p1 | money_without_currency }} €</span></label>
-      <label class="dp"><input type="radio" name="dpack" value="2"><span class="duo2"><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""></span><span><b>2 · Padre contra hijo</b><small>Ahorras {{ ahorro | money_without_currency }} €</small></span><span class="pr">{{ p2 | money_without_currency }} €</span></label>
+      <label class="dp"><input type="radio" name="dpack" value="1" checked><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""><span><b>1 · Pack individual</b><small>1 máquina + guantes</small></span><span class="pr">{{ p1 | money_without_currency }} €</span></label>
+      <label class="dp"><input type="radio" name="dpack" value="2"><span class="duo2"><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""></span><span><b>2 · Pack padre e hijo</b><small>Ahorras {{ ahorro | money_without_currency }} €</small></span><span class="pr">{{ p2 | money_without_currency }} €</span></label>
+      {%- if v3 %}
+      <label class="dp"><input type="radio" name="dpack" value="3"><span class="duo2"><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""><img src="{{ 'playo-maquina.webp' | asset_url }}" alt=""></span><span><b>3 · Pack familia</b><small>Ahorras {{ ahorro3 | money_without_currency }} €</small></span><span class="pr">{{ p3 | money_without_currency }} €</span></label>
+      {%- endif %}
     </div>
     <div class="gift2"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#F5B800"/><path d="M20 9l3.2 6.6 7.3 1-5.3 5.1 1.3 7.2L20 25.5l-6.5 3.4 1.3-7.2-5.3-5.1 7.3-1z" fill="#0A1430"/></svg><span><b>Reto Playo · 30 días en familia</b><small>De regalo, te llega por WhatsApp</small></span><span class="free">Gratis</span></div>
     <div class="step"><span class="n">2</span>¿Dónde lo enviamos?</div>

@@ -10,9 +10,15 @@
   assign p2 = v2.price | default: 8499
   assign ahorro = p1 | times: 2 | minus: p2
   assign p2u = p2 | divided_by: 2
+  assign v3 = playo_product.variants[2]
+  if v3
+    assign p3 = v3.price
+    assign ahorro3 = p1 | times: 3 | minus: p3
+    assign p3u = p3 | divided_by: 3
+  endif
 -%}
 <script>
-  window.PLAYO_VARIANTS = {"1": {{ v1.id | default: 0 }}, "2": {{ v2.id | default: 0 }}};
+  window.PLAYO_VARIANTS = {"1": {{ v1.id | default: 0 }}, "2": {{ v2.id | default: 0 }}{% if v3 %}, "3": {{ v3.id }}{% endif %}};
 </script>
 <section class="hero"><div class="wrap hero-grid">
   <div class="stage-col">
@@ -59,12 +65,17 @@
 
     <fieldset>
       <legend>{{ section.settings.t17 }}</legend>
-      <label class="opt"><input type="radio" name="pack" value="1" checked data-price="{{ p1 | divided_by: 100.0 }}" data-label="1 máquina + guantes"><span class="radio"></span>
+      <label class="opt"><input type="radio" name="pack" value="1" checked data-price="{{ p1 | divided_by: 100.0 }}" data-label="{{ section.settings.t18 }}: 1 máquina + guantes" data-short="1 máquina"><span class="radio"></span>
         <span><span class="name">{{ section.settings.t18 }}</span><br><span class="sub">{{ section.settings.t19 }}</span></span>
         <span class="price">{{ p1 | money_without_currency }} €</span></label>
-      <label class="opt"><input type="radio" name="pack" value="2" data-price="{{ p2 | divided_by: 100.0 }}" data-label="2 máquinas + guantes"><span class="radio"></span><span class="badge">{{ section.settings.t20 }}</span>
+      <label class="opt"><input type="radio" name="pack" value="2" data-price="{{ p2 | divided_by: 100.0 }}" data-label="{{ section.settings.t21 }}: 2 máquinas + guantes" data-short="2 máquinas"><span class="radio"></span>{% if section.settings.t20 != blank %}<span class="badge">{{ section.settings.t20 }}</span>{% endif %}
         <span><span class="name">{{ section.settings.t21 }}<span class="duo"><i></i><i></i></span></span><br><span class="sub">{{ section.settings.t22 }}</span></span>
         <span class="price">{{ p2 | money_without_currency }} €<span class="unit">Ahorras {{ ahorro | money_without_currency }} €</span><span class="per">{{ p2u | money_without_currency }} € {{ section.settings.per_txt }}</span></span></label>
+      {%- if v3 %}
+      <label class="opt"><input type="radio" name="pack" value="3" data-price="{{ p3 | divided_by: 100.0 }}" data-label="{{ section.settings.f_name }}: 3 máquinas + guantes" data-short="3 máquinas"><span class="radio"></span>{% if section.settings.f_badge != blank %}<span class="badge gold">{{ section.settings.f_badge }}</span>{% endif %}
+        <span><span class="name">{{ section.settings.f_name }}<span class="duo trio"><i></i><i></i><i></i></span></span><br><span class="sub">{{ section.settings.f_sub }}</span></span>
+        <span class="price">{{ p3 | money_without_currency }} €<span class="unit">Ahorras {{ ahorro3 | money_without_currency }} €</span><span class="per">{{ p3u | money_without_currency }} € {{ section.settings.per_txt }}</span></span></label>
+      {%- endif %}
     </fieldset>
 
     <div class="gift">
@@ -222,32 +233,32 @@
     {
       "type": "text",
       "id": "t18",
-      "label": "1 máquina + guantes",
-      "default": "1 máquina + guantes"
+      "label": "Pack 1: nombre",
+      "default": "Pack individual"
     },
     {
       "type": "text",
       "id": "t19",
-      "label": "Envío gratis",
-      "default": "Envío gratis"
+      "label": "Pack 1: detalle",
+      "default": "1 máquina + guantes · Envío gratis"
     },
     {
       "type": "text",
       "id": "t20",
-      "label": "Padre contra hijo",
-      "default": "Padre contra hijo"
+      "label": "Pack 2: etiqueta (vacía = sin etiqueta)",
+      "default": "Ideal para regalar"
     },
     {
       "type": "text",
       "id": "t21",
-      "label": "2 máquinas + guantes",
-      "default": "2 máquinas + guantes"
+      "label": "Pack 2: nombre",
+      "default": "Pack padre e hijo"
     },
     {
       "type": "text",
       "id": "t22",
-      "label": "Una por rincón",
-      "default": "Una por rincón"
+      "label": "Pack 2: detalle",
+      "default": "2 máquinas + guantes · Una por rincón"
     },
     {
       "type": "text",
@@ -422,6 +433,25 @@
       "id": "t51",
       "label": "6+ con un adulto",
       "default": "6+ con un adulto"
+    },
+    {
+      "type": "text",
+      "id": "f_name",
+      "label": "Pack 3: nombre",
+      "info": "Solo sale si el producto tiene una tercera variante (3 máquinas).",
+      "default": "Pack familia"
+    },
+    {
+      "type": "text",
+      "id": "f_sub",
+      "label": "Pack 3: detalle",
+      "default": "3 máquinas + guantes · Para toda la casa"
+    },
+    {
+      "type": "text",
+      "id": "f_badge",
+      "label": "Pack 3: etiqueta (vacía = sin etiqueta)",
+      "default": "Mejor precio"
     },
     {
       "type": "text",

@@ -583,3 +583,8 @@ footer .soc svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-widt
 .xmas-pts li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}
 .xmas-card .btn{width:100%}
 @media (max-width:600px){.hud.xmas .msgs{display:none}.hud.xmas .wrap{justify-content:center}}
+
+/* Tercer pack (familia) */
+.opt .duo.trio i:nth-child(2){background:var(--gold)}
+.badge.gold{background:var(--gold);color:var(--ink)}
+.dp input[value="3"]~span small{color:var(--ok);font-weight:700}

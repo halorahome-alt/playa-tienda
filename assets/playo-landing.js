@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',function(){try{
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fmt=n=>n.toFixed(2).replace('.',',')+' €',pad3=n=>String(n).padStart(3,'0'),p2=n=>String(n).padStart(2,'0');
 
-  function total(){const p=$('input[name=pack]:checked');$$('[data-total]').forEach(e=>e.textContent=fmt(+p.dataset.price));$('#stickyPack').textContent=(p.value==='2'?'2 máquinas':'1 máquina')+' · tarjeta o al recibir'}
+  function total(){const p=$('input[name=pack]:checked');$$('[data-total]').forEach(e=>e.textContent=fmt(+p.dataset.price));$('#stickyPack').textContent=(p.dataset.short||'1 máquina')+' · tarjeta o al recibir'}
   $$('input[name=pack]').forEach(i=>i.addEventListener('change',total));
 
   // Cuenta atrás real hasta el último día para recibirla antes de Navidad
